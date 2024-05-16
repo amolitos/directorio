@@ -1,0 +1,138 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\PlanFeature;
+use Illuminate\Database\Seeder;
+
+class PlanFeatureSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        PlanFeature::insert([
+            [
+                'plan_id' => 1,
+                'description' => 'Crear tu perfil con tus datos de servicio profesional.',
+                'order' => 1,
+            ],
+            [
+                'plan_id' => 1,
+                'description' => 'Subir logotipo de marca o photo de perfil.',
+                'order' => 2,
+            ],
+            [
+                'plan_id' => 1,
+                'description' => 'Contacto a través de un chat.',
+                'order' => 3,
+            ],
+            [
+                'plan_id' => 1,
+                'description' => 'Buscar a otros abogados en todo México.',
+                'order' => 4,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Todos los beneficios del plan gratuito.',
+                'order' => 1,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Servicio de Marketing digital.',
+                'order' => 2,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Publicidad pagada en redes sociales.',
+                'order' => 3,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Estrategias de Marketing para atraer clientes.',
+                'order' => 4,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Posicionamiento CEO de tu perfil en Google.',
+                'order' => 5,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Medidas ciberseguridad y rastreo de quienes te contactan.',
+                'order' => 6,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Acceso para subir tu Video, Reel o Stories, promocionales.',
+                'order' => 7,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Botón de contacto directo a tu WhatsApp.',
+                'order' => 8,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'VALIDACIÓN DE CÉDULA PROFESIONAL.',
+                'order' => 9,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'INSIGNIA DE LEGITIMIDAD Y CONFIANZA.',
+                'order' => 10,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Agenda digital para control de actividades con recordatorio.',
+                'order' => 11,
+            ],
+            [
+                'plan_id' => 2,
+                'description' => 'Vinculación directa a tus redes sociales.',
+                'order' => 12,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Todos los beneficios del plan Legal Market.',
+                'order' => 1,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Posicionamiento individual dentro del TOP DE ABOGADOS a nivel nacional.',
+                'order' => 2,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Oficina virtual para asesorías jurídicas o reuniones de trabajo a distancia.',
+                'order' => 3,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Acceso VIP al AULA VIRTUAL denominada “MENTES MAESTRAS”.',
+                'order' => 4,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Acceso a la selecta Comunidad Jurídica Digital “MENTES MAESTRAS”, para recibir contenido jurídico de alto valor.',
+                'order' => 5,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Acceso a la MENTORÍA de actualización jurisprudencial/legal.',
+                'order' => 6,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Acceso a todos los eventos de capacitación legal organizados por el Directorio Nacional de Abogados, con destacados PONENTES ESPECIALISTAS.',
+                'order' => 7,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Difusión de marca personal con tarjeta digital de presentación.',
+                'order' => 8,
+            ],
+        ]);
+    }
+}

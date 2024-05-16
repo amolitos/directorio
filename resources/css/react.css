@@ -1,0 +1,14 @@
+.fc-today-button,
+.fc-prev-button,
+.fc-next-button {
+    background-color: theme(colors.primary) !important;
+    border-color: theme(colors.primary) !important;
+    border-radius: 0 !important;
+}
+
+.fc-prev-button,
+.fc-next-button {
+    background-color: theme(colors.secondary) !important;
+    border-color: theme(colors.secondary) !important;
+    border-radius: 0 !important;
+}
