@@ -21,7 +21,13 @@ class LoginController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
 
-        return redirect()->route('welcome');
+        $user = $request->user();
+
+        if ($user->hasRole(['admin'])) {
+            return redirect()->route('admin.home');
+        }
+
+        return redirect()->route('welcome'); 
     }
 
     public function destroy(): RedirectResponse
