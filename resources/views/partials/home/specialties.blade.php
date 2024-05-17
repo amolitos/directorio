@@ -1,9 +1,9 @@
 <section class="container py-5 md:py-10 px-5 md:px-16 lg:px-28">
     <h6 class="font-bold text-sm text-primary uppercase">
-        Tenemos todas las specialties
+        Tenemos todas las materias
     </h6>
     <h3 class="font-bold text-3xl md:text-4xl text-secondary dark:text-neutral-100 mt-3">
-        Conoce todas las specialties
+        Conoce todas las materias
     </h3>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
         <div class="flex items-center justify-start py-5">
