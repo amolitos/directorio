@@ -185,12 +185,12 @@ export function General() {
         </div>
         <div>
           <label htmlFor="city_id" className="form-label">
-            City
+            Municipio
           </label>
           <select
             id="city_id"
             {...register('city_id', {
-              required: 'El city es requerido',
+              required: 'El municipio es requerido',
             })}
             disabled={loading}
             className="form-input"

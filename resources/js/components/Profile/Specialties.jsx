@@ -75,7 +75,7 @@ export function Specialties() {
     <div className="card p-5">
       <p className="text-sm text-gray-400">
         * A continuación describe las materias en las cuales te desempeñas. En
-        caso de no encontrar alguna specialty, la puedes añadir.
+        caso de no encontrar alguna materia, la puedes añadir.
       </p>
       <div className="mt-5">
         <p className="form-label">Materias</p>
