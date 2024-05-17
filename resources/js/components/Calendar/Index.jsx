@@ -8,33 +8,32 @@ import { CreateEdit } from './CreateEdit';
 import '../../../css/react.css';
 
 export function Index() {
-  const [eventos, setEventos] = useState([]);
-  const [evento, setEvento] = useState({
+  const [events, setEvents] = useState([]);
+  const [event, setEvent] = useState({
     id: '',
-    titulo: '',
-    fecha: '',
-    hora: '',
+    title: '',
+    date: '',
+    hour: '',
   });
   const [modal, setModal] = useState(false);
 
   const handleDateClick = (arg) => {
-    setEvento({
+    setEvent({
       id: 'new',
-      titulo: '',
-      fecha: arg.dateStr,
-      hora: '09:00',
+      title: '',
+      date: arg.dateStr,
+      hour: '09:00',
     });
     setModal(true);
   };
 
-  const handleEventoClick = (arg) => {
-    // console.log(arg.event);
-    setEvento({
+  const handleEventClick = (arg) => {
+    setEvent({
       id: arg.event.id,
-      titulo: arg.event.title,
-      descripcion: arg.event.extendedProps.descripcion,
-      fecha: moment(arg.event.startStr).format('YYYY-MM-DD'),
-      hora: moment(arg.event.startStr).format('HH:mm'),
+      title: arg.event.title,
+      description: arg.event.extendedProps.description,
+      date: moment(arg.event.startStr).format('YYYY-MM-DD'),
+      hour: moment(arg.event.startStr).format('HH:mm'),
     });
     setModal(true);
   };
@@ -46,8 +45,8 @@ export function Index() {
         plugins={[dayGridPlugin, interactionPlugin]}
         locale={esLocale}
         dateClick={handleDateClick}
-        events={eventos}
-        eventClick={handleEventoClick}
+        events={events}
+        eventClick={handleEventClick}
         eventTimeFormat={{
           hour: 'numeric',
           minute: '2-digit',
@@ -57,9 +56,9 @@ export function Index() {
       <CreateEdit
         modal={modal}
         setModal={setModal}
-        eventos={eventos}
-        setEventos={setEventos}
-        evento={evento}
+        events={events}
+        setEvents={setEvents}
+        event={event}
       />
     </>
   );

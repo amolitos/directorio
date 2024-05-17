@@ -37,6 +37,6 @@ Route::group(['middleware' => 'auth:web'], function () {
         // Route::get('completo', [PerfilController::class, 'complete'])->name('completo');
     });
 
-    Route::view('agenda', 'pages.abogado.agenda')->name('agenda');
+    Route::view('calendar', 'pages.lawyer.calendar')->name('calendar');
 });
 

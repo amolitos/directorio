@@ -3,7 +3,7 @@ import moment from 'moment';
 import { useForm } from 'react-hook-form';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 
-export function CreateEdit({ modal, setModal, eventos, setEventos, evento }) {
+export function CreateEdit({ modal, setModal, events, setEvents, event }) {
   const [error, setError] = useState(null);
   const {
     register,
@@ -20,30 +20,30 @@ export function CreateEdit({ modal, setModal, eventos, setEventos, evento }) {
   const ref = useOutsideClick(handleCloseModal);
 
   const handleSave = async (form) => {
-    if (evento.id === 'new') {
-      setEventos([
-        ...eventos,
+    if (event.id === 'new') {
+      setEvents([
+        ...events,
         {
-          id: eventos.length + 1,
-          title: form.titulo,
-          descripcion: form.descripcion,
-          date: `${evento.fecha} ${form.hora}`,
+          id: events.length + 1,
+          title: form.title,
+          description: form.description,
+          date: `${event.date} ${form.hour}`,
         },
       ]);
     } else {
-      const index = eventos.findIndex(
-        (evt) => parseInt(evt.id, 10) === parseInt(evento.id, 10)
+      const index = events.findIndex(
+        (evt) => parseInt(evt.id, 10) === parseInt(event.id, 10)
       );
       if (index !== -1) {
-        setEventos(() => {
-          const nuevoArreglo = [...eventos];
-          nuevoArreglo[index] = {
-            id: evento.id,
-            title: form.titulo,
-            descripcion: form.descripcion,
-            date: `${evento.fecha} ${form.hora}`,
+        setEvents(() => {
+          const newArray = [...events];
+          newArray[index] = {
+            id: event.id,
+            title: form.title,
+            description: form.description,
+            date: `${event.date} ${form.hour}`,
           };
-          return nuevoArreglo;
+          return newArray;
         });
       }
     }
@@ -51,12 +51,12 @@ export function CreateEdit({ modal, setModal, eventos, setEventos, evento }) {
   };
 
   useEffect(() => {
-    if (evento) {
-      setValue('titulo', evento.titulo);
-      setValue('descripcion', evento.descripcion);
-      setValue('hora', evento.hora);
+    if (event) {
+      setValue('title', event.title);
+      setValue('description', event.description);
+      setValue('hour', event.hour);
     }
-  }, [evento, setValue]);
+  }, [event, setValue]);
 
   return (
     <form id="conferenceForm" onSubmit={handleSubmit(handleSave)}>
@@ -65,7 +65,7 @@ export function CreateEdit({ modal, setModal, eventos, setEventos, evento }) {
           <div ref={ref} className="modal-body">
             <div className="flex items-center pb-2 border-b border-b-gray-200">
               <h3 className="font-semibold">
-                Evento <span>{moment(evento.fecha).format('LL')}</span>
+                Evento <span>{moment(event.date).format('LL')}</span>
               </h3>
               <button
                 onClick={handleCloseModal}
@@ -81,48 +81,48 @@ export function CreateEdit({ modal, setModal, eventos, setEventos, evento }) {
               </div>
             )}
             <div className="mt-5">
-              <label htmlFor="titulo" className="form-label">
+              <label htmlFor="title" className="form-label">
                 Título
               </label>
               <input
-                id="titulo"
-                name="titulo"
-                {...register('titulo')}
+                id="title"
+                name="title"
+                {...register('title')}
                 type="text"
                 className="form-input"
               />
-              {errors.titulo && (
-                <p className="form-error">{errors.titulo.message}</p>
+              {errors.title && (
+                <p className="form-error">{errors.title.message}</p>
               )}
             </div>
             <div className="mt-3">
-              <label htmlFor="descripcion" className="form-label">
+              <label htmlFor="description" className="form-label">
                 Descripción
               </label>
               <textarea
-                id="descripcion"
-                name="descripcion"
-                {...register('descripcion')}
+                id="description"
+                name="description"
+                {...register('description')}
                 rows={5}
                 className="form-input"
               />
-              {errors.descripcion && (
-                <p className="form-error">{errors.descripcion.message}</p>
+              {errors.description && (
+                <p className="form-error">{errors.description.message}</p>
               )}
             </div>
             <div className="mt-3">
-              <label htmlFor="hora" className="form-label">
+              <label htmlFor="hour" className="form-label">
                 Hora
               </label>
               <input
-                id="hora"
-                name="hora"
-                {...register('hora')}
+                id="hour"
+                name="hour"
+                {...register('hour')}
                 type="time"
                 className="form-input"
               />
-              {errors.hora && (
-                <p className="form-error">{errors.hora.message}</p>
+              {errors.hour && (
+                <p className="form-error">{errors.hour.message}</p>
               )}
             </div>
             <div className="flex justify-end mt-5">

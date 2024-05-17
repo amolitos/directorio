@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import { MexicoMap } from './Home/MexicoMap';
 import { Index as SearchIndex } from './Search/Index';
 import { Index as ProfileIndex } from './Profile/Index';
-import { Index as AgendaIndex } from './Agenda/Index';
+import { Index as CalendarIndex } from './Calendar/Index';
 import store from '../store/store';
 
 if (document.querySelector('[react-map-mexico]')) {
@@ -34,9 +34,9 @@ if (document.querySelector('[react-profile]')) {
   );
 }
 
-if (document.querySelector('[react-abogado-agenda]')) {
-  const element = document.querySelector('[react-abogado-agenda]');
+if (document.querySelector('[react-calendar]')) {
+  const element = document.querySelector('[react-calendar]');
   const props = { ...element.dataset };
 
-  createRoot(element).render(<AgendaIndex {...props} />);
+  createRoot(element).render(<CalendarIndex {...props} />);
 }

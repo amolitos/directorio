@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('agenda') }}" class="navbar-link">
+                <a href="{{ route('calendar') }}" class="navbar-link">
                     <i class="fa-regular fa-calendar-check mr-1"></i>
                     Agenda
                 </a>
