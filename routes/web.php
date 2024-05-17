@@ -5,6 +5,7 @@ use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\LawyerController;
 use App\Http\Controllers\Web\PlanController;
+use App\Http\Controllers\Web\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -34,7 +35,7 @@ Route::group(['middleware' => 'auth:web'], function () {
 
     Route::prefix('profile')->name('profile.')->group(function() {
         Route::view('edit', 'pages.profile.edit')->name('edit');
-        // Route::get('completo', [PerfilController::class, 'complete'])->name('completo');
+        Route::get('show', [ProfileController::class, 'show'])->name('show');
     });
 
     Route::view('calendar', 'pages.lawyer.calendar')->name('calendar');

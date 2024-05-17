@@ -40,14 +40,12 @@
                         MI CUENTA
                     </div>
                     <ul class="dropdown-body">
-                        {{-- @if (auth()->user()->isPerfil())
-                            <li>
-                                <a href="{{ route('profiles', ['id' => auth()->user()->perfil->id]) }}"
-                                    class="dropdown-item">
-                                    Ver perfil
-                                </a>
-                            </li>
-                        @endif --}}
+                        <li>
+                            <a href="{{ route('profile.show') }}"
+                                class="dropdown-item">
+                                Ver mi perfil
+                            </a>
+                        </li>
                         <li>
                             <a href="{{ route('profile.edit') }}" class="dropdown-item">
                                 Editar perfil
