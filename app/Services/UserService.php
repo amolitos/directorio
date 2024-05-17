@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class UserService
 {
@@ -18,7 +19,8 @@ class UserService
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => bcrypt($request->password),
+            'invite_code' => Session::get('referral_code')
         ]);
 
         return $user;

@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('email', 250)->unique();
             $table->string('password', 100);
             $table->string('slug', 250);
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('invite_code')->nullable();
             $table->string('stripe_id')->nullable()->index();
             $table->string('pm_type')->nullable();
             $table->string('pm_last_four', 4)->nullable();
             $table->timestamp('trial_ends_at')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
