@@ -16,7 +16,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('busqueda') }}" class="navbar-link">
+            <a href="{{ route('search') }}" class="navbar-link">
                 <i class="fa-solid fa-magnifying-glass mr-1"></i>
                 Buscar
             </a>

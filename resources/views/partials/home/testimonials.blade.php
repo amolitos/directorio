@@ -24,7 +24,7 @@
             </blockquote>
         @endfor
     </div>
-    <a href="{{ route('busqueda') }}"
+    <a href="{{ route('search') }}"
         class="btn btn-primary block w-fit mt-8 md:mt-14 mx-auto py-3 md:py-5 px-5 md:px-6">
         BUSCAR ABOGADO
     </a>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function SinResultados() {
+export function NotFoundResults() {
   return (
     <div className="h-full flex items-center justify-center text-center p-5">
       <div>

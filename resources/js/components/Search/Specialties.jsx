@@ -32,7 +32,7 @@ export function Specialties({ selectedSpecialties, setSelectedSpecialties }) {
 
   return (
     <div>
-      <p className="form-label">Specialties</p>
+      <p className="form-label">Materias</p>
       <Select
         autoFocus
         isMulti
@@ -41,7 +41,7 @@ export function Specialties({ selectedSpecialties, setSelectedSpecialties }) {
         options={specialties}
         value={selectedSpecialties}
         onChange={setSelectedSpecialties}
-        placeholder="Specialties"
+        placeholder="Materias"
         className="my-react-select-container"
         classNamePrefix="my-react-select"
       />

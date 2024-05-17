@@ -1,8 +1,8 @@
 import React from 'react';
 import { Filters } from './Filters';
 import { useSearch } from '../../hooks/useSearch';
-import { Profiles } from './Profiles';
-import { SinResultados } from './NotResults';
+import { LawyerItem } from './LawyerItem';
+import { NotFoundResults } from './NotFoundResults';
 import { Skeleton } from './Skeleton';
 
 export function Index() {
@@ -19,14 +19,14 @@ export function Index() {
     if (resultados.length > 0) {
       return (
         <div className="flex flex-col gap-5">
-          {resultados.map((profile) => (
-            <Profiles key={profile.id} profile={profile} />
+          {resultados.map((lawyer) => (
+            <LawyerItem key={lawyer.id} lawyer={lawyer} />
           ))}
         </div>
       );
     }
 
-    return <SinResultados />;
+    return <NotFoundResults />;
   };
 
   return (

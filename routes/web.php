@@ -8,6 +8,7 @@ use App\Http\Controllers\Web\PlanController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::view('search', 'pages.search')->name('search');
 Route::get('lawyers/{slug}', [LawyerController::class, 'index'])->name('lawyers');
 
 Route::middleware('guest')->group(function () {
@@ -25,8 +26,6 @@ Route::prefix('landing')->name('landing.')->group(function() {
 Route::group(['middleware' => 'auth:web'], function () {
     Route::get('logout', [LoginController::class, 'destroy'])->name('logout');
     Route::view('welcome', 'pages.welcome')->name('welcome');
-
-    Route::view('busqueda', 'pages.busqueda')->name('busqueda');
 
     Route::prefix('plans')->name('plans.')->group(function() {
         Route::get('/', [PlanController::class, 'index'])->name('index');

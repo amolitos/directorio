@@ -20,8 +20,9 @@ class LawyerSearchResource extends JsonResource
             'photo' => $this->photo,
             'state' => $this->state->name,
             'city' => $this->city->name,
-            'verified_at' => $this->verified_at,
             'degree' => $this->degree->name,
+            'verified_at' => $this->verified_at,
+            'url' => route('lawyers', ['slug' => $this->user->slug]),
         ];
     }
 }

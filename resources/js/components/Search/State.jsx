@@ -12,7 +12,7 @@ export function State({ selectedState, setSelectedState }) {
   return (
     <div>
       <label htmlFor="state_id" className="form-label">
-        state
+        Estado
       </label>
       <select
         id="state_id"

@@ -3,7 +3,7 @@
         Directorio Nacional de Abogados
     </h2>
     <div class="flex flex-col md:flex-row justify-center items-center gap-y-4 md:gap-x-2 mt-5">
-        <a href="{{ route('busqueda') }}" class="btn btn-secondary py-3 px-5">
+        <a href="{{ route('search') }}" class="btn btn-secondary py-3 px-5">
             BUSCO ABOGADO
         </a>
         <a href="{{ route('profile.edit') }}" class="btn btn-primary py-3 px-5">

@@ -32,7 +32,7 @@ export function Services({ selectedServices, setSelectedServices }) {
 
   return (
     <div>
-      <p className="form-label">Services</p>
+      <p className="form-label">Servicios</p>
       <Select
         autoFocus
         isMulti
@@ -41,7 +41,7 @@ export function Services({ selectedServices, setSelectedServices }) {
         options={services}
         value={selectedServices}
         onChange={setSelectedServices}
-        placeholder="Services"
+        placeholder="Servicios"
         className="my-react-select-container"
         classNamePrefix="my-react-select"
       />

@@ -10,7 +10,7 @@ export const useSearch = ({ stateId }) => {
     setLoading(true);
 
     try {
-      const { data } = await api.get('/busqueda', { params });
+      const { data } = await api.get('/search', { params });
       setResultados(data.data);
     } catch ({ message }) {
       toast.error(message);
