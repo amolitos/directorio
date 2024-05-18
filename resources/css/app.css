@@ -96,7 +96,7 @@
     }
 
     .modal {
-        @apply bg-black/70 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-full flex items-center;
+        @apply backdrop-blur-sm bg-black/70 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-full flex items-center;
     }
 
     .modal-body {
@@ -141,11 +141,11 @@
     }
 
     .table tbody tr {
-        @apply bg-white border-t;
+        @apply bg-white dark:bg-zinc-800 border-t dark:border-t-slate-600;
     }
 
     .table tbody td {
-        @apply py-3 px-6;
+        @apply text-gray-800 dark:text-neutral-100 py-3 px-6;
     }
 
     .tooltip {
@@ -190,9 +190,7 @@
         @apply bg-neutral-500 dark:bg-yellow-600 rounded hover:bg-neutral-600 dark:hover:bg-yellow-800;
     }
 
-    .my-react-select-container
-        .my-react-select__multi-value__remove
-        .css-tj5bde-Svg {
+    .my-react-select-container .my-react-select__multi-value__remove .css-tj5bde-Svg {
         @apply text-neutral-300 dark:text-stone-950;
     }
 }
