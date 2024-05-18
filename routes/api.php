@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\DegreeController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\ProfileController;
@@ -33,6 +34,13 @@ Route::group(['middleware' => 'auth:web'], function () {
         Route::prefix('services')->group(function() {
             Route::get('/', [ProfileServiceController::class, 'index']);
             Route::post('/', [ProfileServiceController::class, 'store']);
+        });
+    });
+
+    Route::prefix('admin')->middleware('role:admin')->group(function () {
+        Route::prefix('users')->group(function() {
+            Route::get('/', [UserController::class, 'index']);
+            Route::patch('{user}', [UserController::class, 'update']);
         });
     });
 });
