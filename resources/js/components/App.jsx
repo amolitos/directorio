@@ -6,6 +6,7 @@ import { MexicoMap } from './Home/MexicoMap';
 import { Index as SearchIndex } from './Search/Index';
 import { Index as ProfileIndex } from './Profile/Index';
 import { Index as CalendarIndex } from './Calendar/Index';
+import { Index as AdminUserIndex } from './Admin/Users/Index';
 import store from '../store/store';
 
 if (document.querySelector('[react-map-mexico]')) {
@@ -39,4 +40,16 @@ if (document.querySelector('[react-calendar]')) {
   const props = { ...element.dataset };
 
   createRoot(element).render(<CalendarIndex {...props} />);
+}
+
+if (document.querySelector('[react-admin-users]')) {
+  const element = document.querySelector('[react-admin-users]');
+  const props = { ...element.dataset };
+
+  createRoot(element).render(
+    <Provider store={store}>
+      <AdminUserIndex {...props} />
+      <ToastContainer />
+    </Provider>
+  );
 }
