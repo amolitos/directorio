@@ -1,7 +1,7 @@
 import React from 'react';
 
 export function Skeleton() {
-  const items = [1, 2, 3];
+  const items = [1, 2, 3, 4, 5, 6];
 
   return (
     <div className="flex flex-col gap-5">
