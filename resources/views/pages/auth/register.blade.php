@@ -16,7 +16,14 @@
         <x-form.input id="email" label="Correo electrónico" type="email" class="mt-3" />
         <x-form.password id="password" label="Contraseña" class="mt-3" />
         <div class="font-semibold text-sm text-gray-700 dark:text-neutral-200 mt-5">
-            Al registrarte, estás aceptando nuestra política de privacidad.
+            Al registrarte, estás aceptando nuestros
+            <a href="{{ route('terms') }}" class="text-blue-500">
+                términos y condiciones
+            </a>
+            , y nuestra
+            <a href="{{ route('privacy') }}" class="text-blue-500">
+                política de privacidad
+            </a>.
         </div>
         <button type="submit" class="btn btn-primary w-full mt-5">
             Registrate
