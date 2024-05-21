@@ -12,8 +12,7 @@
                     'text-zinc-800 dark:text-neutral-400 !border-zinc-800' => $plan->id == 1,
                     'bg-gradient-to-br from-yellow-900 to-primary text-zinc-100 border-none relative md:scale-110 mobile:mt-5' =>
                         $plan->id == 2,
-                    'bg-gradient-to-br from-zinc-700 to-zinc-400' =>
-                        $plan->id == 3,
+                    'bg-gradient-to-br from-zinc-700 to-zinc-400' => $plan->id == 3,
                 ])>
                     @if ($plan->id == 2)
                         <div
@@ -50,7 +49,8 @@
                         <a href="{{ route('plans.checkout', ['plan' => $plan]) }}" @class([
                             'btn uppercase',
                             'btn-secondary' => $plan->id == 1,
-                            'bg-gradient-to-br from-orange-600 to-red-600 border-none drop-shadow-lg' => $plan->id == 2,
+                            'bg-gradient-to-br from-orange-600 to-red-600 border-none drop-shadow-lg' =>
+                                $plan->id == 2,
                             'bg-gray-400 border-gray-400' => $plan->id == 3,
                         ])>
                             Continuar
@@ -78,7 +78,8 @@
                 <h4 class="font-bold text-3xl mt-5">
                     PAGA SOLO ${{ $plans[1]->price }} ¡AHORRA ${{ $plans[2]->price - $plans[1]->price }}¡
                 </h4>
-                <a href="" class="block btn btn-danger text-lg mt-8 md:mt-12 py-4 px-6">
+                <a href="{{ route('plans.checkout', ['plan' => 3]) }}"
+                    class="block btn btn-danger text-lg mt-8 md:mt-12 py-4 px-6">
                     RECLAMA TU OFERTA YA
                 </a>
             </div>
