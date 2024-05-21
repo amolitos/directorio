@@ -6,26 +6,24 @@
         Nos reconocen como la mejor opción
     </p>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-8 md:mt-10">
-        @for ($i = 0; $i < 4; $i++)
-            <blockquote
-                class="bg-white dark:bg-zinc-800 flex flex-col md:flex-row-reverse items-center md:justify-between gap-3 rounded-md shadow-sm p-5">
-                <img src="{{ asset('images/lawyer.jpg') }}" class="object-cover w-20 md:w-24 h-20 md:h-24 rounded-full">
-                <div class="flex flex-col pr-8">
-                    <div class="relative pl-12">
-                        <i class="fa-solid fa-quote-left absolute left-0 text-4xl text-primary"></i>
-                        <p class="text-gray-500 dark:text-indigo-100 mt-2">
-                            Es la mejor plataforma de abogados
-                        </p>
-                    </div>
-                    <h3 class="pl-12 mt-3 text-base font-medium leading-5 text-gray-800 dark:text-gray-400 truncate">
-                        Ernesto López <span class="text-sm text-gray-500"> - Abogado</span>
-                    </h3>
-                </div>
-            </blockquote>
-        @endfor
+        <x-testimonial name="Juan Carlos Martínez">
+            Encontré justo el abogado que necesitaba gracias a esta plataforma. La comunicación fue fluida y
+            profesional. Sin duda, una excelente herramienta para quienes buscan asesoramiento legal.
+        </x-testimonial>
+        <x-testimonial name="María Fernanda López">
+            La plataforma es increíblemente fácil de usar y me conectó con un abogado especializado en tiempo récord.
+            Resolví mi problema legal rápidamente y sin complicaciones. ¡Muy recomendable!
+        </x-testimonial>
+        <x-testimonial name="José Luis Hernández">
+            Me sorprendió la eficiencia de esta plataforma. En minutos, tenía varias opciones de abogados calificados.
+            El proceso fue sencillo y los resultados fueron excepcionales.
+        </x-testimonial>
+        <x-testimonial name="Ana Sofía García">
+            Excelente servicio y una interfaz muy amigable. Pude consultar con un abogado experto sin salir de casa.
+            ¡Definitivamente volveré a usar esta plataforma en el futuro!
+        </x-testimonial>
     </div>
-    <a href="{{ route('search') }}"
-        class="btn btn-primary block w-fit mt-8 md:mt-14 mx-auto py-3 md:py-5 px-5 md:px-6">
+    <a href="{{ route('search') }}" class="btn btn-primary block w-fit mt-8 md:mt-14 mx-auto py-3 md:py-5 px-5 md:px-6">
         BUSCAR ABOGADO
     </a>
 </section>
