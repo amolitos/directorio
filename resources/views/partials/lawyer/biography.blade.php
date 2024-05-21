@@ -1,4 +1,4 @@
-@if ($lawyer->profile->biography !== '<p></p>')
+@if ($lawyer->profile->biography && $lawyer->profile->biography !== '<p></p>')
     <div class="card">
         <h3 class="font-bold">
             Biografía profesional
