@@ -45,93 +45,95 @@ class PlanFeatureSeeder extends Seeder
             ],
             [
                 'plan_id' => 2,
-                'description' => 'Publicidad pagada en redes sociales.',
+                'description' => 'Posicionamiento CEO de tu perfil en Google.',
                 'order' => 3,
             ],
             [
                 'plan_id' => 2,
-                'description' => 'Estrategias de Marketing para atraer clientes.',
+                'description' => 'Medidas ciberseguridad y rastreo de quienes te contactan.',
                 'order' => 4,
             ],
             [
                 'plan_id' => 2,
-                'description' => 'Posicionamiento CEO de tu perfil en Google.',
+                'description' => 'Acceso para subir tu Video, Reel o Stories, promocionales.',
                 'order' => 5,
             ],
             [
                 'plan_id' => 2,
-                'description' => 'Medidas ciberseguridad y rastreo de quienes te contactan.',
+                'description' => 'Botón de contacto directo a tu WhatsApp.',
                 'order' => 6,
             ],
             [
                 'plan_id' => 2,
-                'description' => 'Acceso para subir tu Video, Reel o Stories, promocionales.',
+                'description' => 'VALIDACIÓN DE CÉDULA PROFESIONAL.',
                 'order' => 7,
             ],
             [
                 'plan_id' => 2,
-                'description' => 'Botón de contacto directo a tu WhatsApp.',
+                'description' => 'INSIGNIA DE LEGITIMIDAD Y CONFIANZA.',
                 'order' => 8,
             ],
             [
                 'plan_id' => 2,
-                'description' => 'VALIDACIÓN DE CÉDULA PROFESIONAL.',
+                'description' => 'Agenda digital para control de actividades con recordatorio.',
                 'order' => 9,
             ],
             [
                 'plan_id' => 2,
-                'description' => 'INSIGNIA DE LEGITIMIDAD Y CONFIANZA.',
-                'order' => 10,
-            ],
-            [
-                'plan_id' => 2,
-                'description' => 'Agenda digital para control de actividades con recordatorio.',
-                'order' => 11,
-            ],
-            [
-                'plan_id' => 2,
                 'description' => 'Vinculación directa a tus redes sociales.',
-                'order' => 12,
+                'order' => 10,
             ],
             [
                 'plan_id' => 3,
                 'description' => 'Todos los beneficios del plan Legal Market.',
                 'order' => 1,
             ],
+
             [
                 'plan_id' => 3,
-                'description' => 'Posicionamiento individual dentro del TOP DE ABOGADOS a nivel nacional.',
+                'description' => 'Publicidad pagada en redes sociales.',
                 'order' => 2,
             ],
             [
                 'plan_id' => 3,
-                'description' => 'Oficina virtual para asesorías jurídicas o reuniones de trabajo a distancia.',
+                'description' => 'Estrategias de Marketing para atraer clientes.',
                 'order' => 3,
             ],
+
             [
                 'plan_id' => 3,
-                'description' => 'Acceso VIP al AULA VIRTUAL denominada “MENTES MAESTRAS”.',
+                'description' => 'Oficina virtual para asesorías jurídicas o reuniones de trabajo a distancia.',
                 'order' => 4,
             ],
             [
                 'plan_id' => 3,
-                'description' => 'Acceso a la selecta Comunidad Jurídica Digital “MENTES MAESTRAS”, para recibir contenido jurídico de alto valor.',
+                'description' => 'Acceso VIP al AULA VIRTUAL denominada “MENTES MAESTRAS”.',
                 'order' => 5,
             ],
             [
                 'plan_id' => 3,
-                'description' => 'Acceso a la MENTORÍA de actualización jurisprudencial/legal.',
+                'description' => 'Acceso a la selecta Comunidad Jurídica Digital “MENTES MAESTRAS”, para recibir contenido jurídico de alto valor.',
                 'order' => 6,
             ],
             [
                 'plan_id' => 3,
-                'description' => 'Acceso a todos los eventos de capacitación legal organizados por el Directorio Nacional de Abogados, con destacados PONENTES ESPECIALISTAS.',
+                'description' => 'Acceso a la MENTORÍA de actualización jurisprudencial/legal.',
                 'order' => 7,
             ],
             [
                 'plan_id' => 3,
-                'description' => 'Difusión de marca personal con tarjeta digital de presentación.',
+                'description' => 'Acceso a todos los eventos de capacitación legal organizados por el Directorio Nacional de Abogados, con destacados PONENTES ESPECIALISTAS.',
                 'order' => 8,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Difusión de marca personal con tarjeta digital de presentación.',
+                'order' => 9,
+            ],
+            [
+                'plan_id' => 3,
+                'description' => 'Adiestramiento en habilidades digitales.',
+                'order' => 10,
             ],
         ]);
     }
