@@ -15,24 +15,8 @@
                 <div
                     class="absolute -top-3 left-3 z-10 bg-cyan-800 dark:bg-sky-600 flex items-center font-medium text-xs text-white uppercase rounded-md py-2 px-3">
                     <i class="fa-solid fa-star mr-2"></i>
-                    Si no sabes elige aquí
+                    La mejor opción
                 </div>
-                <a href={{ route('home') }}>
-                    <img src="{{ asset('images/looking_lawyer.jpg') }}" class="w-full" />
-                    <div class="p-5">
-                        <h4 class="font-bold text-xl text-primary uppercase">
-                            Busco abogado
-                        </h4>
-                        <p class="h-[72px] line-clamp-3 text-gray-700 dark:text-white mt-3">
-                            ¿Necesitas services jurídicos confiables? Encuentra a los mejores abogados.
-                        </p>
-                        <button class="btn btn-primary block w-full text-base mt-3">
-                            Buscar los mejores abogados
-                        </button>
-                    </div>
-                </a>
-            </div>
-            <div class="rounded-lg shadow-xl dark:bg-zinc-800">
                 <a href="{{ route('plans.index') }}">
                     <img src="{{ asset('images/i_am_lawyer.jpg') }}" class="w-full" />
                     <div class="p-5">
@@ -40,10 +24,26 @@
                             Soy abogado
                         </h4>
                         <p class="h-[72px] line-clamp-3 text-gray-700 dark:text-white mt-3">
-                            Te ayudamos a ofrecer tus services jurídicos. Registrar mis services.
+                            Te ayudamos a ofrecer tus servicios jurídicos. Registrar mis servicios.
                         </p>
                         <button class="btn btn-primary block w-full text-base mt-3">
-                            Ofrecer services jurídicos
+                            Ofrecer servicios jurídicos
+                        </button>
+                    </div>
+                </a>
+            </div>
+            <div class="rounded-lg shadow-xl dark:bg-zinc-800">
+                <a href={{ route('search') }}>
+                    <img src="{{ asset('images/looking_lawyer.jpg') }}" class="w-full" />
+                    <div class="p-5">
+                        <h4 class="font-bold text-xl text-primary uppercase">
+                            Busco abogado
+                        </h4>
+                        <p class="h-[72px] line-clamp-3 text-gray-700 dark:text-white mt-3">
+                            ¿Necesitas servicios jurídicos confiables? Encuentra a los mejores abogados.
+                        </p>
+                        <button class="btn btn-primary block w-full text-base mt-3">
+                            Buscar los mejores abogados
                         </button>
                     </div>
                 </a>
