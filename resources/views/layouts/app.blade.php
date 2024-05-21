@@ -20,8 +20,8 @@
     <div>
         @yield('content')
     </div>
-    @if (!isset($hide_footer))
-        {{-- <x-footer /> --}}
+    @if (isset($show_footer))
+        <x-footer />
     @endif
     @stack('scripts')
 </body>

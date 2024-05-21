@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['show_footer' => true])
 
 @section('content')
     @include('partials.home.map')
