@@ -34,7 +34,7 @@ export function Contact() {
   return (
     <form onSubmit={handleSubmit(handleSave)} className="card">
       <p className="text-sm text-gray-400">
-        * Para finalizar tu profile, llena los siguientes campos opcionales.
+        * Para finalizar tu perfil, llena los siguientes campos opcionales.
       </p>
       <div className="mt-5">
         <label htmlFor="whatsapp" className="form-label">
