@@ -5,12 +5,17 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class PlanController extends Controller
 {
-    public function index() : View
+    public function index()
     {
+        $user = request()->user();
+
+        if ($user->subscribed('default')) {
+            return redirect()->route('profile.show');
+        }
+
         $plans = Plan::orderBy('id')->get();
 
         return view('pages.plans.index')->with('plans', $plans);
