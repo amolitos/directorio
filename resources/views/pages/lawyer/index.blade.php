@@ -4,9 +4,11 @@
     {{ $lawyer->name }}
 @endsection
 
-@section('meta')
-    {!! SEO::generate() !!}
-@endsection
+@if ($lawyer->subscribed('default'))
+    @section('meta')
+        {!! SEO::generate() !!}
+    @endsection
+@endif
 
 @section('content')
     @include('partials.lawyer.verification')

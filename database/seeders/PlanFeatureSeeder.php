@@ -45,7 +45,7 @@ class PlanFeatureSeeder extends Seeder
             ],
             [
                 'plan_id' => 2,
-                'description' => 'Posicionamiento CEO de tu perfil en Google.',
+                'description' => 'Posicionamiento SEO en tu perfil.',
                 'order' => 3,
             ],
             [
