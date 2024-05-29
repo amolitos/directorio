@@ -5,31 +5,7 @@
 @endsection
 
 @section('meta')
-    <link rel="canonical" href="{{ URL::current() }}" />
-
-    <!-- Primary Meta Tags -->
-    <meta name="language" content="es_ES">
-    <meta name="robots" content="index, follow" />
-    <meta name="description" content="Perfil digital del directorio nacional de abogados y abogadas.">
-    <meta name="keywords" content="{{ $lawyer->profile->services->pluck('name')->implode(',') }}">
-    <meta name="author" content="{{ $lawyer->name }}">
-    <meta name="publisher" content="directorio.softwzi.com" />
-    <meta name="creator" content="softwzi.com" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:locale" content="es_ES">
-    <meta property="og:url" content="{{ URL::current() }}">
-    <meta property="og:site_name" content="{{ config('app.name') }}">
-    <meta property="og:title" content="{{ $lawyer->name }}">
-    <meta property="og:description" content="Perfil digital del directorio nacional de abogados y abogadas.">
-    <meta property="og:image" content="{{ asset("storage/$lawyer->profile->photo") }}">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ URL::current() }}">
-    <meta property="twitter:title" content="{{ $lawyer->name }}">
-    <meta property="twitter:description" content="Perfil digital del directorio nacional de abogados y abogadas.">
-    <meta property="twitter:image" content="{{ asset("storage/$lawyer->profile->photo") }}">
+    {!! SEO::generate() !!}
 @endsection
 
 @section('content')
