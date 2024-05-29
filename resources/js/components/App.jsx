@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { MexicoMap } from './Home/MexicoMap';
+import { SharedButton } from './Lawyer/SharedButton';
 import { Index as SearchIndex } from './Search/Index';
 import { Index as ProfileIndex } from './Profile/Index';
 import { Index as CalendarIndex } from './Calendar/Index';
@@ -14,6 +15,13 @@ if (document.querySelector('[react-map-mexico]')) {
   const props = { ...element.dataset };
 
   createRoot(element).render(<MexicoMap {...props} />);
+}
+
+if (document.querySelector('[react-shared-button]')) {
+  const element = document.querySelector('[react-shared-button]');
+  const props = { ...element.dataset };
+
+  createRoot(element).render(<SharedButton {...props} />);
 }
 
 if (document.querySelector('[react-search]')) {

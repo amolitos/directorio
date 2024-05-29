@@ -96,11 +96,11 @@
     }
 
     .modal {
-        @apply backdrop-blur-sm bg-black/70 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-full flex items-center;
+        @apply backdrop-blur-sm bg-black/70 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-full flex items-center p-5;
     }
 
     .modal-body {
-        @apply relative w-full max-w-2xl h-auto bg-white dark:bg-zinc-800 rounded-lg shadow mx-auto p-4;
+        @apply relative h-auto bg-white dark:bg-zinc-800 rounded-lg shadow mx-auto p-5 md:p-8;
     }
 
     .navbar {
