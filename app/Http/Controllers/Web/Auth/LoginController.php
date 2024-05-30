@@ -27,7 +27,7 @@ class LoginController extends Controller
             return redirect()->route('admin.home');
         }
 
-        return redirect()->route('welcome'); 
+        return redirect()->route('home');
     }
 
     public function destroy(): RedirectResponse

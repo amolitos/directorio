@@ -25,9 +25,9 @@ export function Contact() {
   const handleSave = async (form) => {
     try {
       await dispatch(createUpdateProfile({ ...profile, ...form })).unwrap();
-      window.location.href = '/profile/show';
-    } catch ({ message }) {
-      toast.error(message);
+      window.location.href = '/plans';
+    } catch (err) {
+      toast.error(err);
     }
   };
 
