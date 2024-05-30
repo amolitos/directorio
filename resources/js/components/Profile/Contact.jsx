@@ -44,7 +44,21 @@ export function Contact() {
           id="whatsapp"
           name="whatsapp"
           type="tel"
-          {...register('whatsapp')}
+          {...register('whatsapp', {
+            pattern: {
+              value: /^[0-9]+$/,
+              message: 'Solo ingresa números',
+            },
+            minLength: {
+              message: 'El número debe tener 10 dígitos',
+              value: 10,
+            },
+            maxLength: {
+              message: 'El número debe tener 10 dígitos',
+              value: 10,
+            },
+          })}
+          maxLength="10"
           disabled={loading}
           className="form-input"
         />

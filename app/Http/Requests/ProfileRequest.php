@@ -30,7 +30,7 @@ class ProfileRequest extends FormRequest
             'suburb' => 'nullable|string|max:100',
             'city_id' => 'nullable|exists:cities,id',
             'state_id' => 'required|exists:states,id',
-            'whatsapp' => 'nullable|string|max:10',
+            'whatsapp' => 'nullable|digits:10',
             'website' => 'nullable|string|max:255',
             'linkedin' => 'nullable|string|max:255',
             'facebook' => 'nullable|string|max:255',
