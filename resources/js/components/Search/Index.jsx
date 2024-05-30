@@ -18,11 +18,14 @@ export function Index() {
 
     if (resultados.length > 0) {
       return (
-        <div className="flex flex-col gap-5">
-          {resultados.map((lawyer) => (
-            <LawyerItem key={lawyer.id} lawyer={lawyer} />
-          ))}
-        </div>
+        <>
+          <h6 className="font-medium">{resultados.length} Resultado(s)</h6>
+          <div className="flex flex-col gap-5 mt-5">
+            {resultados.map((lawyer) => (
+              <LawyerItem key={lawyer.id} lawyer={lawyer} />
+            ))}
+          </div>
+        </>
       );
     }
 
@@ -30,15 +33,17 @@ export function Index() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-7 gap-5 md:gap-10">
-      <div className="md:col-span-2">
+    <div className="grid grid-cols-1 lg:grid-cols-6">
+      <div className="lg:h-[calc(100vh-81px)] lg:col-span-2 overflow-y-scroll">
         <Filters
           loading={loading}
           fetchResultados={fetchResultados}
           defaultstate={stateId}
         />
       </div>
-      <div className="md:col-span-5">{renderContent()}</div>
+      <div className="lg:h-[calc(100vh-81px)] lg:col-span-4 container p-5 lg:p-8 overflow-y-scroll">
+        {renderContent()}
+      </div>
     </div>
   );
 }

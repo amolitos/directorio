@@ -16,6 +16,10 @@ class SearchController extends Controller
             return $q->where('state_id', request('state'));
         });
 
+        $query->when(request('city') != 0, function ($q) {
+            return $q->where('city_id', request('city'));
+        });
+
         $query->when(request()->has('specialties'), function ($q) {
             return $q->whereHas('specialties', function ($sq) {
                 return $sq->whereIn('specialty_id', request('specialties'));

@@ -14,7 +14,7 @@
     @include('partials.lawyer.verification')
     <div class="container py-5 md:py-10 px-5 md:px-10 lg:px-14">
         <div class="grid grid-cols-1 md:grid-cols-6 gap-5 md:gap-8 lg:gap-10">
-            <div class="md:col-span-2 flex flex-col gap-y-5">
+            <div class="md:col-span-2 flex flex-col gap-y-5 lg:gap-y-10">
                 @include('partials.lawyer.personal')
                 @include('partials.lawyer.contact')
             </div>

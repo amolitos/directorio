@@ -2,7 +2,7 @@ import React from 'react';
 
 export function LawyerItem({ lawyer }) {
   return (
-    <a href={lawyer.url} className="card flex items-start gap-5 border-0">
+    <a href={lawyer.url} className="card flex items-start gap-5">
       <img
         src={lawyer.photo ? `/storage/${lawyer.photo}` : '/images/user.jpg'}
         alt="Foto de perfil"
