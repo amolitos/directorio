@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useWizard } from 'react-use-wizard';
 import StarterKit from '@tiptap/starter-kit';
+import HardBreak from '@tiptap/extension-hard-break';
 import { EditorContent, useEditor } from '@tiptap/react';
 import { toast } from 'react-toastify';
 import { metadataProfile } from '../../store/profileSlicer';
@@ -14,17 +15,18 @@ export function Personal() {
   const dispatch = useDispatch();
   const { nextStep } = useWizard();
 
-  const CustomStarterKit = StarterKit.configure({
-    paragraph: {
-      HTMLAttributes: {
-        class: 'min-h-[1rem]',
-      },
-    },
-  });
-
   const editorInstance = useEditor({
-    extensions: [CustomStarterKit],
-    content: profile.biography ?? '<p></p>',
+    extensions: [
+      StarterKit,
+      HardBreak.extend({
+        addKeyboardShortcuts() {
+          return {
+            Enter: ({ editor }) => editor.commands.setHardBreak(),
+          };
+        },
+      }),
+    ],
+    content: profile.biography ?? '',
     editorProps: {
       attributes: { class: 'form-input h-96 max-h-96 overflow-y-auto' },
     },
