@@ -8,6 +8,7 @@ export function Filters({ loading, fetchResultados, defaultstate }) {
   const [selectedCity, setSelectedCity] = useState(0);
   const [selectedSpecialties, setSelectedSpecialties] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
+  const [verified, setVerified] = useState(false);
 
   const handleToggleFilters = () => {
     const filters = document.getElementById('filters');
@@ -24,6 +25,7 @@ export function Filters({ loading, fetchResultados, defaultstate }) {
       city: selectedCity,
       specialties,
       services,
+      ...(verified ? { verified } : {}),
     });
 
     handleToggleFilters();
@@ -55,6 +57,17 @@ export function Filters({ loading, fetchResultados, defaultstate }) {
           selectedServices={selectedServices}
           setSelectedServices={setSelectedServices}
         />
+        <label className="w-fit inline-flex items-center cursor-pointer mt-3">
+          <input
+            onChange={() => setVerified(!verified)}
+            type="checkbox"
+            className="sr-only peer"
+          />
+          <span className="text-neutral-900 dark:text-neutral-300 select-none mr-3">
+            Verificados
+          </span>
+          <div className="relative w-[52px] h-7 bg-zinc-500 rounded-full peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-6 after:h-6 after:transition-all peer-checked:bg-teal-600" />
+        </label>
         <div className="grid">
           <button
             onClick={handleSearch}

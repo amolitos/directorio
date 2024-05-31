@@ -32,7 +32,15 @@ class SearchController extends Controller
             })->get();
         });
 
-        $search = $query->with('specialties')->with('services')->get();
+        $query->when(request()->has('verified'), function ($q) {
+            return $q->whereNotNull('verified_at');
+        });
+
+        $search = $query
+            ->with('specialties')
+            ->with('services')
+            ->orderByRaw('verified_at IS NULL, RAND()')
+            ->get();
 
         return LawyerSearchResource::collection($search);
     }

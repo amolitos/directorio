@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('states', [LocationController::class, 'states']);
 Route::get('cities', [LocationController::class, 'cities']);
 
+Route::get('specialties', [SpecialtyController::class, 'index']);
+Route::get('services', [ServiceController::class, 'index']);
+
+Route::get('search', [SearchController::class, 'index']);
+
 Route::group(['middleware' => 'auth:web'], function () {
     Route::get('degrees', [DegreeController::class, 'index']);
-
-    Route::get('specialties', [SpecialtyController::class, 'index']);
-    Route::get('services', [ServiceController::class, 'index']);
-
-    Route::get('search', [SearchController::class, 'index']);
 
     Route::prefix('profile')->group(function() {
         Route::get('/', [ProfileController::class, 'index']);

@@ -8,7 +8,13 @@ export function LawyerItem({ lawyer }) {
         alt="Foto de perfil"
         className="w-16 md:w-20 h-16 md:h-20 rounded-full"
       />
-      <div>
+      <div className="relative grow">
+        {lawyer.verified_at && (
+          <div className="absolute top-1 right-1 bg-teal-600 text-sm text-white rounded py-1 px-2">
+            <i className="fa-solid fa-check mr-2" />
+            VERIFICADO
+          </div>
+        )}
         <h3 className="font-semibold md:text-xl truncate leading-none">
           {lawyer.name}
         </h3>
