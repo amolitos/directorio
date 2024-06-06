@@ -12,6 +12,7 @@ export function StateCity({
   const handleSelectState = (event) => {
     const stateId = event.target.value;
     setSelectedState(stateId);
+    setSelectedCity(0);
     handleOnChageState(event);
   };
 
