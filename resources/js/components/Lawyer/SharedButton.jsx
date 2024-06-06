@@ -34,7 +34,7 @@ export function SharedButton({ link }) {
             <button
               onClick={handleCloseModal}
               type="button"
-              className="btn border-none text-lg absolute top-0 right-0"
+              className="btn border-none text-lg absolute top-1 right-0"
             >
               <i className="fas fa-times" />
             </button>
