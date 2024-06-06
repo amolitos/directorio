@@ -55,6 +55,10 @@
         @apply bg-secondary dark:bg-zinc-600 text-white border-secondary dark:border-zinc-600 focus:ring-secondary/30;
     }
 
+    .btn-whatsapp {
+        @apply bg-teal-600 border-teal-600 focus:ring-teal-200 flex items-center justify-center;
+    }
+
     .card {
         @apply block bg-white dark:bg-zinc-800 border border-gray-300 dark:border-zinc-700 rounded p-5;
     }
