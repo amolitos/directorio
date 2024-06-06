@@ -33,7 +33,8 @@ Route::group(['middleware' => 'auth:web'], function () {
 
     Route::prefix('plans')->name('plans.')->group(function() {
         Route::get('/', [PlanController::class, 'index'])->name('index');
-        Route::get('/{plan}/checkout', [PlanController::class, 'checkout'])->name('checkout');
+        Route::get('{plan}/checkout', [PlanController::class, 'checkout'])->name('checkout');
+        Route::view('successful', 'pages.plans.successful')->name('successful');
     });
 
     Route::prefix('profile')->name('profile.')->group(function() {

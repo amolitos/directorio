@@ -27,11 +27,11 @@ class PlanController extends Controller
             return $request->user()
                 ->newSubscription('default', $plan->stripe_price)
                 ->checkout([
-                    'success_url' => route('profile.show'),
+                    'success_url' => route('plans.successful'),
                     'cancel_url' => route('plans.index'),
                 ]);
         }
 
-        return redirect()->route('profile.show');
+        return redirect()->route('plans.successful');
     }
 }

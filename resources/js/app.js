@@ -1,4 +1,5 @@
 import Alpine from 'alpinejs';
+import confetti from 'canvas-confetti';
 import './components/App';
 
 window.Alpine = Alpine;
@@ -59,5 +60,27 @@ addEventListener('DOMContentLoaded', () => {
 
     updateCountdown();
     const timer = setInterval(updateCountdown, 1000);
+  });
+
+  document.querySelectorAll('[data-js-fireworks]').forEach((el) => {
+    const duration = 30 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 20, spread: 360, ticks: 60, zIndex: 0 };
+
+    const randomInRange = (min, max) => {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
+      confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
+    }, 250);
   });
 });
