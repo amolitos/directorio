@@ -26,6 +26,11 @@ export function MexicoMap() {
     return 450;
   };
 
+  const openSearchByState = (fips) => {
+    const state = parseInt(fips.split('MX')[1], 10);
+    window.location.href = `/search?state=${state}`;
+  };
+
   const initMap = async () => {
     const data = [
       ['mx-3622', 10],
@@ -107,10 +112,8 @@ export function MexicoMap() {
           point: {
             events: {
               click() {
-                window.location.href = `/search?state=${
-                  // eslint-disable-next-line react/no-this-in-sfc
-                  this.properties.fips.split('MX')[1]
-                }`;
+                // eslint-disable-next-line react/no-this-in-sfc
+                openSearchByState(this.properties.fips);
               },
             },
           },
