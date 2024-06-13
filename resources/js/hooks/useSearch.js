@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import api from '../api';
 
-export const useSearch = ({ stateId }) => {
+export const useSearch = (defaultState) => {
   const [loading, setLoading] = useState(false);
   const [resultados, setResultados] = useState([]);
 
@@ -20,7 +20,7 @@ export const useSearch = ({ stateId }) => {
   };
 
   useEffect(() => {
-    fetchResultados({ state: stateId });
+    fetchResultados({ state: defaultState });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
