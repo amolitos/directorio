@@ -7,4 +7,5 @@ Route::group(['middleware' => 'role:admin'], function() {
     Route::view('home', 'pages.admin.home')->name('home');
 
     Route::view('users', 'pages.admin.users')->name('users');
+    Route::view('subscriptions', 'pages.admin.subscriptions')->name('subscriptions');
 });

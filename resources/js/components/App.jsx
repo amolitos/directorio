@@ -8,6 +8,7 @@ import { Index as SearchIndex } from './Search/Index';
 import { Index as ProfileIndex } from './Profile/Index';
 import { Index as CalendarIndex } from './Calendar/Index';
 import { Index as AdminUserIndex } from './Admin/Users/Index';
+import { Index as AdminSubscriptionsIndex } from './Admin/Subscriptions/Index';
 import store from '../store/store';
 
 if (document.querySelector('[react-map-mexico]')) {
@@ -57,6 +58,18 @@ if (document.querySelector('[react-admin-users]')) {
   createRoot(element).render(
     <Provider store={store}>
       <AdminUserIndex {...props} />
+      <ToastContainer />
+    </Provider>
+  );
+}
+
+if (document.querySelector('[react-admin-subscriptions]')) {
+  const element = document.querySelector('[react-admin-subscriptions]');
+  const props = { ...element.dataset };
+
+  createRoot(element).render(
+    <Provider store={store}>
+      <AdminSubscriptionsIndex {...props} />
       <ToastContainer />
     </Provider>
   );

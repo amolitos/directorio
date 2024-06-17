@@ -13,6 +13,16 @@
                     </p>
                 </div>
             </a>
+            <a href="{{ route('admin.subscriptions') }}">
+                <div class="card">
+                    <div>
+                        <i class="fa-solid fa-file-invoice-dollar text-3xl"></i>
+                    </div>
+                    <p class="text-xl mt-2">
+                        Suscripciones
+                    </p>
+                </div>
+            </a>
         </div>
     </div>
 @endsection
