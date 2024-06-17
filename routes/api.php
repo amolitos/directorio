@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\SubscriptionController;
 use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\DegreeController;
 use App\Http\Controllers\Api\LocationController;
@@ -41,6 +42,10 @@ Route::group(['middleware' => 'auth:web'], function () {
         Route::prefix('users')->group(function() {
             Route::get('/', [UserController::class, 'index']);
             Route::patch('{user}', [UserController::class, 'update']);
+        });
+
+        Route::prefix('subscriptions')->group(function() {
+            Route::get('/', [SubscriptionController::class, 'index']);
         });
     });
 });
