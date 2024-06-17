@@ -124,6 +124,26 @@
         @apply block text-center py-2 px-3 mobile:border-2 mobile:border-gray-200;
     }
 
+    .pagination {
+        @apply flex flex-wrap items-stretch justify-end -space-x-px font-medium text-sm text-gray-700 leading-5;
+    }
+
+    .pagination .page-btn {
+        @apply w-10 h-12 flex justify-center items-center border border-gray-500 p-1 hover:bg-primary hover:border-primary hover:text-white;
+    }
+
+    .pagination .page {
+        @apply w-12 h-12 border border-gray-500 border-collapse p-1 hover:text-primary;
+    }
+
+    .pagination .page-link {
+        @apply w-full h-full flex justify-center items-center select-none;
+    }
+
+    .pagination .active-page {
+        @apply bg-primary/10 text-primary;
+    }
+
     .super-title {
         @apply text-white [text-shadow:_0px_1px_4px_rgb(255_223_0_)];
     }
