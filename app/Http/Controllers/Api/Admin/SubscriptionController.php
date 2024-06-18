@@ -15,6 +15,7 @@ class SubscriptionController extends Controller
             User::selectRaw('
                 users.id,
                 users.name as user,
+                users.phone,
                 users.email,
                 plans.name as plan,
                 subscriptions.created_at

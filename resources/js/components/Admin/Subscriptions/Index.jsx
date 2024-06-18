@@ -38,8 +38,8 @@ export function Index({ courseId }) {
   const filteredSubscriptions = subscriptions.filter((subscription) =>
     [
       subscription.user,
+      subscription.phone,
       subscription.email,
-      subscription.professional_id,
       subscription.plan,
     ].some((field) =>
       field.toLowerCase().includes(subscriptionSearch.toLowerCase())
