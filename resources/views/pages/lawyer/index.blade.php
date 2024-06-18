@@ -4,7 +4,7 @@
     {{ $lawyer->name }}
 @endsection
 
-@if ($lawyer->subscribed('default'))
+@if ($lawyer->profile->verified_at)
     @section('meta')
         {!! SEO::generate() !!}
     @endsection

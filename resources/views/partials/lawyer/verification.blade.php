@@ -1,4 +1,4 @@
-@if ($lawyer->subscribed('default'))
+@if ($lawyer->profile->verified_at)
     <div
         class="bg-gradient-to-r from-green-700 to-teal-600 font-medium text-white text-center uppercase border-t-2 border-teal-400 py-2 px-4">
         Perfil verificado
