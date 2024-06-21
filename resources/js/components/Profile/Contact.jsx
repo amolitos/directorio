@@ -34,7 +34,9 @@ export function Contact() {
   return (
     <form onSubmit={handleSubmit(handleSave)} className="card">
       <p className="text-sm text-gray-400">
-        * Para finalizar tu perfil, llena los siguientes campos opcionales.
+        * Poner tu número de WhatsApp de manera pública puede conllevar varios
+        riesgos y problemas. El Directorio no se responsabiliza por las personas
+        que puedan contactarte.
       </p>
       <div className="mt-5">
         <label htmlFor="whatsapp" className="form-label">

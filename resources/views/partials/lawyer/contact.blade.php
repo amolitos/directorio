@@ -38,11 +38,13 @@
             </a>
         @endif
     </div>
-    <div class="grid mt-5">
-        <a href="https://api.whatsapp.com/send?phone={{ $lawyer->profile->whatsapp }}" target="_BLANK"
-            class="btn btn-primary">
-            ENVIAR MENSAJE
-        </a>
+    <div class="flex flex-col gap-4 mt-5">
+        @if ($lawyer->profile->whatsapp)
+            <a href="https://api.whatsapp.com/send?phone={{ $lawyer->profile->whatsapp }}" target="_BLANK"
+                class="btn btn-primary grid">
+                ENVIAR MENSAJE
+            </a>
+        @endif
+        <div react-shared-button data-link="{{ url()->current() }}" class="grid"></div>
     </div>
-    <div react-shared-button data-link="{{ url()->current() }}" class="grid mt-4"></div>
 </div>
