@@ -13,7 +13,7 @@ export function LawyerItem({ lawyer }) {
       <img
         src={lawyer.photo ? `/storage/${lawyer.photo}` : '/images/user.jpg'}
         alt="Foto de perfil"
-        className="w-16 md:w-20 h-16 md:h-20 rounded-full"
+        className="w-16 min-w-16 md:w-20 md:min-w-20 h-16 md:h-20 bg-white object-contain border border-zinc-600 rounded-full"
       />
       <div className="w-full overflow-x-hidden">
         <div className="flex items-center">
