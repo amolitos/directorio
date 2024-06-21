@@ -39,8 +39,8 @@ class SearchController extends Controller
         $search = $query
             ->with('specialties')
             ->with('services')
-            ->orderByRaw('verified_at IS NULL, RAND()')
-            ->get();
+            ->orderByRaw('verified_at IS NULL, id')
+            ->paginate(20);
 
         return LawyerSearchResource::collection($search);
     }

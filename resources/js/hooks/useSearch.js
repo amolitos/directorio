@@ -1,28 +1,47 @@
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import api from '../api';
 
 export const useSearch = (defaultState) => {
-  const [loading, setLoading] = useState(false);
-  const [resultados, setResultados] = useState([]);
+  const [params, setParams] = useState({
+    state: defaultState,
+  });
+  const [total, setTotal] = useState(0);
 
-  const fetchResultados = async (params) => {
-    setLoading(true);
-
-    try {
-      const { data } = await api.get('/search', { params });
-      setResultados(data.data);
-    } catch ({ message }) {
-      toast.error(message);
-    } finally {
-      setLoading(false);
-    }
+  const fetchResults = async ({ pageParam }) => {
+    const { data } = await api.get(`/search?page=${pageParam}`, { params });
+    setTotal(data.meta.total);
+    return data.data;
   };
 
+  const {
+    data,
+    isLoading: loading,
+    error,
+    fetchNextPage,
+  } = useInfiniteQuery({
+    queryKey: ['search', params],
+    queryFn: fetchResults,
+    refetchInterval: 60 * 1000 * 2,
+    refetchOnWindowFocus: false,
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, allPages) => {
+      const nextPage = lastPage.length ? allPages.length + 1 : undefined;
+      return nextPage;
+    },
+  });
+
   useEffect(() => {
-    fetchResultados({ state: defaultState });
+    fetchNextPage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { loading, resultados, fetchResultados };
+  return {
+    loading,
+    error,
+    data,
+    total,
+    fetchNextPage,
+    setParams,
+  };
 };

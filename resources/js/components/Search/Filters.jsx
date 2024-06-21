@@ -3,8 +3,8 @@ import { StateCity } from './StateCity';
 import { Specialties } from './Specialties';
 import { Services } from './Services';
 
-export function Filters({ loading, fetchResultados, defaultstate }) {
-  const [selectedState, setSelectedState] = useState(defaultstate);
+export function Filters({ loading, defaultState, setParams }) {
+  const [selectedState, setSelectedState] = useState(defaultState);
   const [selectedCity, setSelectedCity] = useState(0);
   const [selectedSpecialties, setSelectedSpecialties] = useState([]);
   const [selectedServices, setSelectedServices] = useState([]);
@@ -20,7 +20,7 @@ export function Filters({ loading, fetchResultados, defaultstate }) {
     const specialties = selectedSpecialties.map((item) => item.value);
     const services = selectedServices.map((item) => item.value);
 
-    fetchResultados({
+    setParams({
       state: selectedState,
       city: selectedCity,
       specialties,

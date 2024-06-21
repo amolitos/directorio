@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
 import { MexicoMap } from './Home/MexicoMap';
 import { SharedButton } from './Lawyer/SharedButton';
@@ -28,8 +29,13 @@ if (document.querySelector('[react-shared-button]')) {
 if (document.querySelector('[react-search]')) {
   const element = document.querySelector('[react-search]');
   const props = { ...element.dataset };
+  const queryClient = new QueryClient();
 
-  createRoot(element).render(<SearchIndex {...props} />);
+  createRoot(element).render(
+    <QueryClientProvider client={queryClient}>
+      <SearchIndex {...props} />
+    </QueryClientProvider>
+  );
 }
 
 if (document.querySelector('[react-profile]')) {
