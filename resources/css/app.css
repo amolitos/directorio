@@ -68,7 +68,7 @@
     }
 
     .dropdown-body {
-        @apply hidden md:absolute md:top-11 md:right-0 md:w-40 md:max-w-[160px] bg-white dark:bg-zinc-700 text-black dark:text-neutral-100 text-center md:border md:border-zinc-500 z-50;
+        @apply hidden md:absolute md:top-11 md:right-0 md:w-40 md:max-w-[160px] bg-white dark:bg-zinc-700 text-black dark:text-neutral-100 text-center md:border md:border-zinc-500 z-50 mobile:gap-3 mobile:mt-3;
     }
 
     .dropdown-item {
