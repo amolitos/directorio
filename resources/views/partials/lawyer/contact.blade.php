@@ -40,8 +40,7 @@
     </div>
     <div class="flex flex-col gap-4 mt-5">
         @if ($lawyer->profile->whatsapp)
-            <a href="https://api.whatsapp.com/send?phone={{ $lawyer->profile->whatsapp }}" target="_BLANK"
-                class="btn btn-primary grid">
+            <a href="https://wa.me/52{{ $lawyer->profile->whatsapp }}" target="_BLANK" class="btn btn-primary grid">
                 ENVIAR MENSAJE
             </a>
         @endif
