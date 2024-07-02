@@ -42,5 +42,9 @@ Route::group(['middleware' => 'auth:web'], function () {
         Route::get('show', [ProfileController::class, 'show'])->name('show');
     });
 
+    Route::prefix('school')->name('school.')->group(function() {
+        Route::view('/', 'pages.school.index')->name('index');
+    });
+
     Route::view('calendar', 'pages.lawyer.calendar')->name('calendar');
 });
