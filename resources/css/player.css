@@ -1,0 +1,4 @@
+.plyr .plyr__video-embed iframe,
+.plyr__tooltip {
+    pointer-events: none;
+}

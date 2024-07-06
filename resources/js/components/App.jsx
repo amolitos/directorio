@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
 import { MexicoMap } from './Home/MexicoMap';
 import { SharedButton } from './Lawyer/SharedButton';
+import { Player } from './UI/Player';
 import { Index as SearchIndex } from './Search/Index';
 import { Index as ProfileIndex } from './Profile/Index';
 import { Index as CalendarIndex } from './Calendar/Index';
@@ -55,6 +56,13 @@ if (document.querySelector('[react-calendar]')) {
   const props = { ...element.dataset };
 
   createRoot(element).render(<CalendarIndex {...props} />);
+}
+
+if (document.querySelector('[react-player]')) {
+  const element = document.querySelector('[react-player]');
+  const props = { ...element.dataset };
+
+  createRoot(element).render(<Player {...props} />);
 }
 
 if (document.querySelector('[react-admin-users]')) {

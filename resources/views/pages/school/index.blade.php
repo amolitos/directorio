@@ -19,18 +19,30 @@
                 </div>
             </div>
         </a>
-        <h4 class="font-bold text-xl mt-5 md:mt-10">
+        <h4 class="font-bold text-xl md:text-2xl mt-5 md:mt-10">
+            <i class="fa-solid fa-clapperboard mr-2"></i>
             Videos
         </h4>
-        <h6 class="text-lg mt-5">
-            No se encontraron resultados.
-        </h6>
-        {{-- <div class="grid grid-cols-3 gap-5 mt-3">
-            @for ($i = 0; $i < 3; $i++)
-                <div class="card">
-                    hola
-                </div>
-            @endfor
-        </div> --}}
+        @if ($videos->count() > 0)
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+                @foreach ($videos as $video)
+                    <a href="{{ route('school.video', ['id' => $video->id]) }}" class="card p-0">
+                        @if ($video->thumbnail)
+                            <img src="{{ $video->thumbnail }}" alt="Thumbnail"
+                                class="w-full h-auto object-contain rounded-t">
+                        @endif
+                        <div class="p-5">
+                            <h4 class="font-medium text-lg line-clamp-3 min-h-[84px]">
+                                {{ $video->title }}
+                            </h4>
+                        </div>
+                    </a>
+                @endforeach
+            </div>
+        @else
+            <h6 class="text-lg mt-5">
+                No se encontraron resultados.
+            </h6>
+        @endif
     </div>
 @endsection
