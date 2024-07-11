@@ -25,7 +25,7 @@ class PlanFeatureSeeder extends Seeder
             ],
             [
                 'plan_id' => 1,
-                'description' => 'Contacto a través de un chat.',
+                'description' => 'Sin información de contacto.',
                 'order' => 3,
             ],
             [

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@300;400;500;600;700&display=swap");
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import "react-toastify/dist/ReactToastify.css";
+@import "custom.css";
 
 @tailwind base;
 @tailwind components;
@@ -12,7 +13,7 @@
     }
 
     .alert-danger {
-        @apply bg-red-300 dark:bg-red-400 text-red-800 dark:text-neutral-800;
+        @apply bg-red-900 border-l-4 border-red-500;
     }
 
     .alert-primary {
@@ -24,7 +25,7 @@
     }
 
     .alert-success {
-        @apply bg-teal-300 text-teal-800;
+        @apply bg-teal-900 border-l-4 border-teal-500;
     }
 
     .badge {
@@ -40,23 +41,23 @@
     }
 
     .btn {
-        @apply font-medium text-sm text-center outline-none border-2 rounded-sm py-2.5 px-5 disabled:opacity-50 disabled:cursor-not-allowed focus:ring-4;
+        @apply font-medium text-sm text-center outline-none py-3 px-5 disabled:opacity-50 disabled:cursor-not-allowed focus:ring-4;
     }
 
     .btn-danger {
-        @apply bg-red-700 text-white border-red-700 focus:ring-red-300;
+        @apply bg-red-700 text-white focus:ring-red-300;
     }
 
     .btn-primary {
-        @apply bg-primary text-neutral-50 border-primary focus:ring-primary/30 dark:focus:ring-yellow-500/30;
+        @apply bg-gradient-to-r from-primary to-[#9b6f45] text-white hover:from-[#9b6f45] hover:to-primary focus:ring-4 focus:ring-yellow-100/20;
     }
 
     .btn-secondary {
-        @apply bg-secondary dark:bg-zinc-600 text-white border-secondary dark:border-zinc-600 focus:ring-secondary/30;
+        @apply bg-secondary dark:bg-zinc-600 text-white dark:border-zinc-600 focus:ring-secondary/30;
     }
 
     .btn-whatsapp {
-        @apply bg-teal-600 border-teal-600 focus:ring-teal-200 flex items-center justify-center;
+        @apply bg-teal-600 focus:ring-teal-200 flex items-center justify-center;
     }
 
     .card {
@@ -88,7 +89,7 @@
     }
 
     .form-input {
-        @apply block w-full bg-gray-50 dark:bg-zinc-700 outline-none border border-gray-300 dark:border-gray-500 text-gray-900 dark:text-slate-100 text-sm rounded p-2.5 focus:ring-1 focus:ring-primary focus:border-primary dark:focus:border-primary;
+        @apply appearance-none block w-full bg-gray-50 dark:bg-zinc-700 outline-none rounded border border-gray-300 dark:border-gray-500 text-gray-900 dark:text-slate-100 text-sm p-2.5 focus:ring-4 focus:ring-yellow-300/20 focus:dark:border-primary;
     }
 
     .form-error {
@@ -181,7 +182,7 @@
     }
 
     .my-react-select-container .my-react-select__control--is-focused {
-        @apply ring-1 ring-primary dark:border-primary;
+        @apply ring-4 ring-yellow-300/20 dark:border-primary;
     }
 
     .my-react-select-container .my-react-select__menu {
