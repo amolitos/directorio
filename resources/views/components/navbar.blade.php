@@ -18,29 +18,41 @@
         </li>
         @auth
             <li>
-                <a href="{{ route('school.index') }}" class="btn btn-secondary block">
+                <a href="{{ route('school.index') }}" class="navbar-link">
                     <i class="fa-solid fa-chalkboard-user mr-1"></i>
                     Aula virtual
                 </a>
             </li>
             <li>
                 <button class="dropdown">
-                    <div class="btn btn-primary">
-                        MI CUENTA
+                    <div class="bg-zinc-600 border-2 border-slate-400 rounded-full flex items-center">
+                        <img src="{{ asset('images/user.jpg') }}" class="w-11 h-11 rounded-full" />
+                        <span class="font-medium text-sm md:text-xs text-white ml-2 mr-3">
+                            CUENTA
+                        </span>
                     </div>
                     <ul class="dropdown-body">
                         <li>
                             <a href="{{ route('profile.show') }}" class="dropdown-item">
+                                <i class="fa-solid fa-user mr-1"></i>
                                 Ver mi perfil
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                                <i class="fa-solid fa-pen mr-1"></i>
                                 Editar perfil
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('calendar') }}" class="dropdown-item">
+                                <i class="fa-regular fa-calendar mr-1"></i>
+                                Agenda
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('logout') }}" class="dropdown-item">
+                                <i class="fa-solid fa-right-from-bracket mr-1"></i>
                                 Salir
                             </a>
                         </li>
