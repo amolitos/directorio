@@ -55,7 +55,11 @@ if (document.querySelector('[react-calendar]')) {
   const element = document.querySelector('[react-calendar]');
   const props = { ...element.dataset };
 
-  createRoot(element).render(<CalendarIndex {...props} />);
+  createRoot(element).render(
+    <Provider store={store}>
+      <CalendarIndex {...props} />
+    </Provider>
+  );
 }
 
 if (document.querySelector('[react-player]')) {

@@ -1,76 +1,98 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
 import { useForm } from 'react-hook-form';
-import { useOutsideClick } from '../../hooks/useOutsideClick';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  createAppointment,
+  deleteAppointment,
+  updateAppointment,
+} from '../../store/appointmentSlicer';
+import 'moment/dist/locale/es';
 
-export function CreateEdit({ modal, setModal, events, setEvents, event }) {
-  const [error, setError] = useState(null);
+export function CreateEdit({ modal, setModal }) {
+  const { appointment, error } = useSelector((state) => state.appointments);
   const {
+    reset,
     register,
     setValue,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const dispatch = useDispatch();
+
   const handleCloseModal = () => {
-    setError(null);
+    reset({
+      title: '',
+      description: '',
+      hour: '09:00',
+    });
     setModal(false);
   };
 
-  const ref = useOutsideClick(handleCloseModal);
-
   const handleSave = async (form) => {
-    if (event.id === 'new') {
-      setEvents([
-        ...events,
-        {
-          id: events.length + 1,
+    if (appointment.id === 'new') {
+      dispatch(
+        createAppointment({
           title: form.title,
           description: form.description,
-          date: `${event.date} ${form.hour}`,
-        },
-      ]);
-    } else {
-      const index = events.findIndex(
-        (evt) => parseInt(evt.id, 10) === parseInt(event.id, 10)
+          start: `${appointment.date} ${form.hour}`,
+        })
       );
-      if (index !== -1) {
-        setEvents(() => {
-          const newArray = [...events];
-          newArray[index] = {
-            id: event.id,
-            title: form.title,
-            description: form.description,
-            date: `${event.date} ${form.hour}`,
-          };
-          return newArray;
-        });
-      }
+    } else {
+      dispatch(
+        updateAppointment({
+          id: appointment.id,
+          title: form.title,
+          description: form.description,
+          start: `${appointment.date} ${form.hour}`,
+        })
+      );
     }
-    setModal(false);
+    if (error == null) {
+      handleCloseModal();
+    }
+  };
+
+  const handleDelete = async () => {
+    dispatch(deleteAppointment(appointment.id));
+    handleCloseModal();
   };
 
   useEffect(() => {
-    if (event) {
-      setValue('title', event.title);
-      setValue('description', event.description);
-      setValue('hour', event.hour);
-    }
-  }, [event, setValue]);
+    setValue('title', appointment.title);
+    setValue('description', appointment.description);
+    setValue('hour', appointment.hour);
+  }, [
+    modal,
+    appointment.description,
+    appointment.hour,
+    appointment.title,
+    setValue,
+  ]);
 
   return (
     <form id="conferenceForm" onSubmit={handleSubmit(handleSave)}>
       {modal && (
         <div className="modal">
-          <div ref={ref} className="modal-body">
-            <div className="flex items-center pb-2 border-b border-b-gray-200">
-              <h3 className="font-semibold">
-                Evento <span>{moment(event.date).format('LL')}</span>
+          <div className="modal-body w-full md:w-[640px]">
+            <div className="flex items-center gap-2">
+              <h3 className="font-semibold text-xl md:text-3xl mr-auto">
+                {moment(appointment.date).locale('es-mx').format('LL')}
               </h3>
+              {appointment.id !== 'new' && (
+                <button
+                  onClick={handleDelete}
+                  type="button"
+                  className="btn border-none text-lg px-2"
+                >
+                  <i className="fa-solid fa-trash-can" />
+                </button>
+              )}
               <button
                 onClick={handleCloseModal}
                 type="button"
-                className="btn border-none ml-auto text-xl"
+                className="btn border-none text-lg px-2"
               >
                 <i className="fas fa-times" />
               </button>
@@ -80,7 +102,7 @@ export function CreateEdit({ modal, setModal, events, setEvents, event }) {
                 {error}
               </div>
             )}
-            <div className="mt-5">
+            <div className="mt-8">
               <label htmlFor="title" className="form-label">
                 Título
               </label>
@@ -103,7 +125,7 @@ export function CreateEdit({ modal, setModal, events, setEvents, event }) {
                 id="description"
                 name="description"
                 {...register('description')}
-                rows={5}
+                rows={3}
                 className="form-input"
               />
               {errors.description && (
@@ -125,8 +147,8 @@ export function CreateEdit({ modal, setModal, events, setEvents, event }) {
                 <p className="form-error">{errors.hour.message}</p>
               )}
             </div>
-            <div className="flex justify-end mt-5">
-              <button type="submit" className="btn btn-primary">
+            <div className="flex mt-5">
+              <button type="submit" className="btn btn-primary ml-auto">
                 Guardar
               </button>
             </div>

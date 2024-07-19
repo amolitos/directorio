@@ -52,5 +52,7 @@ Route::group(['middleware' => 'auth:web'], function () {
             ->middleware([EnsureUserIsSubscribed::class]);
     });
 
-    Route::view('calendar', 'pages.lawyer.calendar')->name('calendar');
+    Route::view('calendar', 'pages.lawyer.calendar')
+        ->name('calendar')
+        ->middleware([EnsureUserIsSubscribed::class]);
 });

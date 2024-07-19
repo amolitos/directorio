@@ -1,3 +1,7 @@
+:root {
+    --fc-border-color: theme(colors.neutral.500);
+}
+
 .fc-today-button,
 .fc-prev-button,
 .fc-next-button {
@@ -11,4 +15,10 @@
     background-color: theme(colors.secondary) !important;
     border-color: theme(colors.secondary) !important;
     border-radius: 0 !important;
+}
+
+@media screen and (max-width:767px) {
+    .fc-toolbar.fc-header-toolbar {
+        font-size: 70%
+    }
 }
