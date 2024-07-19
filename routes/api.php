@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\Admin\SubscriptionController;
 use App\Http\Controllers\Api\Admin\UserController;
+use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\DegreeController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\ProfileController;
@@ -36,6 +37,13 @@ Route::group(['middleware' => 'auth:web'], function () {
             Route::get('/', [ProfileServiceController::class, 'index']);
             Route::post('/', [ProfileServiceController::class, 'store']);
         });
+    });
+
+    Route::prefix('appointments')->group(function() {
+        Route::get('/', [AppointmentController::class, 'index']);
+        Route::post('/', [AppointmentController::class, 'store']);
+        Route::patch('{id}', [AppointmentController::class, 'update']);
+        Route::delete('{id}', [AppointmentController::class, 'destroy']);
     });
 
     Route::prefix('admin')->middleware('role:admin')->group(function () {
