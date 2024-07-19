@@ -16,7 +16,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-6 gap-5 md:gap-8 lg:gap-10">
             <div class="lg:col-span-2 flex flex-col gap-y-5 lg:gap-y-10">
                 @include('partials.lawyer.personal')
-                @if ($lawyer->subscribed('default'))
+                @if ($lawyer->profile->verified_at)
                     @include('partials.lawyer.contact')
                 @endif
             </div>
