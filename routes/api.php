@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\Admin\SubscriptionController;
 use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\CashPaymentController;
 use App\Http\Controllers\Api\DegreeController;
 use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\ProfileController;
@@ -37,6 +38,11 @@ Route::group(['middleware' => 'auth:web'], function () {
             Route::get('/', [ProfileServiceController::class, 'index']);
             Route::post('/', [ProfileServiceController::class, 'store']);
         });
+    });
+
+    Route::prefix('cash-payments')->group(function() {
+        Route::get('/', [CashPaymentController::class, 'index']);
+        Route::get('{cashPayment}/intent', [CashPaymentController::class, 'intent']);
     });
 
     Route::prefix('appointments')->group(function() {
