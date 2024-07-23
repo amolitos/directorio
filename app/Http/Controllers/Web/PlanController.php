@@ -21,6 +21,15 @@ class PlanController extends Controller
         return view('pages.plans.index')->with('plans', $plans);
     }
 
+    public function show(Plan $plan)
+    {
+        if ($plan->stripe_price) {
+            return view('pages.plans.detail')->with('plan', $plan);
+        }
+
+        return redirect()->route('plans.successful');
+    }
+
     public function checkout(Request $request, Plan $plan)
     {
         if ($plan->stripe_price) {
@@ -28,7 +37,7 @@ class PlanController extends Controller
                 ->newSubscription('default', $plan->stripe_price)
                 ->checkout([
                     'success_url' => route('plans.successful'),
-                    'cancel_url' => route('plans.index'),
+                    'cancel_url' => route('plans.show', ['plan' => $plan->id]),
                 ]);
         }
 

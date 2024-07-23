@@ -3,8 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ToastContainer } from 'react-toastify';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { MexicoMap } from './Home/MexicoMap';
 import { SharedButton } from './Lawyer/SharedButton';
+import { CashPayments } from './Plans/CashPayments';
 import { Player } from './UI/Player';
 import { Index as SearchIndex } from './Search/Index';
 import { Index as ProfileIndex } from './Profile/Index';
@@ -18,13 +21,6 @@ if (document.querySelector('[react-map-mexico]')) {
   const props = { ...element.dataset };
 
   createRoot(element).render(<MexicoMap {...props} />);
-}
-
-if (document.querySelector('[react-shared-button]')) {
-  const element = document.querySelector('[react-shared-button]');
-  const props = { ...element.dataset };
-
-  createRoot(element).render(<SharedButton {...props} />);
 }
 
 if (document.querySelector('[react-search]')) {
@@ -48,6 +44,25 @@ if (document.querySelector('[react-profile]')) {
       <ProfileIndex {...props} />
       <ToastContainer />
     </Provider>
+  );
+}
+
+if (document.querySelector('[react-shared-button]')) {
+  const element = document.querySelector('[react-shared-button]');
+  const props = { ...element.dataset };
+
+  createRoot(element).render(<SharedButton {...props} />);
+}
+
+if (document.querySelector('[react-cash-payments]')) {
+  const element = document.querySelector('[react-cash-payments]');
+  const props = { ...element.dataset };
+  const stripeKey = loadStripe(import.meta.env.VITE_STRIPE_KEY);
+
+  createRoot(element).render(
+    <Elements stripe={stripeKey}>
+      <CashPayments {...props} />
+    </Elements>
   );
 }
 

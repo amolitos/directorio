@@ -46,12 +46,12 @@
                         @endforeach
                     </ul>
                     <div class="grid mt-auto">
-                        <a href="{{ route('plans.checkout', ['plan' => $plan]) }}" @class([
+                        <a href="{{ route('plans.show', ['plan' => $plan]) }}" @class([
                             'btn uppercase',
                             'btn-secondary' => $plan->id == 1,
                             'bg-gradient-to-br from-orange-600 to-red-600 border-none drop-shadow-lg' =>
                                 $plan->id == 2,
-                            'bg-gray-400 border-gray-400' => $plan->id == 3,
+                            'bg-gray-300 border-gray-300 text-zinc-700' => $plan->id == 3,
                         ])>
                             Continuar
                         </a>

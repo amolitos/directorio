@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth:web'], function () {
 
     Route::prefix('plans')->name('plans.')->group(function() {
         Route::get('/', [PlanController::class, 'index'])->name('index');
+        Route::get('{plan}/detail', [PlanController::class, 'show'])->name('show');
         Route::get('{plan}/checkout', [PlanController::class, 'checkout'])->name('checkout');
         Route::view('successful', 'pages.plans.successful')->name('successful');
     });
