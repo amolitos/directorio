@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import { useWizard } from 'react-use-wizard';
 import { toast } from 'react-toastify';
-import { sanitizeTag, toSingleArray } from '../../utils/tagHelper';
+import {
+  avoidEqualValues,
+  sanitizeTag,
+  toSingleArray,
+} from '../../utils/tagHelper';
 import api from '../../api';
 
 export function Specialties() {
@@ -46,8 +50,9 @@ export function Specialties() {
   };
 
   const handleCreateSpecialty = (specialty) => {
-    const options = [...selectedOptions, sanitizeTag(specialty)];
-    setSelectedOptions(options);
+    const sanatize = sanitizeTag(specialty);
+    const newTags = avoidEqualValues(sanatize, specialties, selectedOptions);
+    setSelectedOptions(newTags);
   };
 
   const handleSubmit = async () => {
