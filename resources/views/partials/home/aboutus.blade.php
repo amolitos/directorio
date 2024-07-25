@@ -5,9 +5,9 @@
     <h2 class="font-bold text-4xl text-primary">
         Nosotros
     </h2>
-    <p class="text-sm md:text-lg text-justify mt-5 md:mt-10">
+    <p class="md:text-xl text-justify mt-5 md:mt-10">
         El Directorio Nacional es una innovadora plataforma tecnológica diseñada para destacar los servicios legales de
-        profesionales del derecho en todo México en el ámbito digital. Su objetivo principal es crear y potenciar la
-        marca personal de cada abogado o office legal, situándolos de manera destacada en el mercado digital.
+        profesionales del derecho en todo México. Su objetivo principal es crear y potenciar la marca personal de cada
+        abogado, situándolos en el mercado digital.
     </p>
 </div>
