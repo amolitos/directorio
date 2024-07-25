@@ -105,7 +105,7 @@
     }
 
     .modal-body {
-        @apply relative h-auto max-h-screen bg-white dark:bg-zinc-800 rounded-lg mx-auto p-5 md:p-8 overflow-auto;
+        @apply relative h-auto max-h-screen bg-white dark:bg-zinc-800 rounded-lg mx-auto p-5 overflow-auto;
     }
 
     .navbar {

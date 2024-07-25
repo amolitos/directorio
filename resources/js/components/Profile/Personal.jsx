@@ -6,12 +6,15 @@ import HardBreak from '@tiptap/extension-hard-break';
 import { EditorContent, useEditor } from '@tiptap/react';
 import { toast } from 'react-toastify';
 import { metadataProfile } from '../../store/profileSlicer';
+import { ImageCropper } from '../UI/ImageCropper';
 
 export function Personal() {
   const { profile, loading } = useSelector((state) => state.profile);
+  const [modal, setModal] = useState(false);
   const fileInputRef = useRef(null);
   const previewRef = useRef(null);
-  const [photo, setFoto] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [resultImage, setResultImage] = useState(null);
   const dispatch = useDispatch();
   const { nextStep } = useWizard();
 
@@ -32,16 +35,28 @@ export function Personal() {
     },
   });
 
-  const handleFotoChange = (e) => {
-    const file = e.target.files[0];
-    setFoto(file);
-    previewRef.current.src = URL.createObjectURL(file);
+  const handleSelectImage = (e) => {
+    const { files } = e.target;
+
+    if (files && files[0]) {
+      const blob = URL.createObjectURL(files[0]);
+      setSelectedImage({
+        src: blob,
+        type: files[0].type,
+      });
+      setModal(true);
+    }
+  };
+
+  const handleOnResultImage = (blob) => {
+    setResultImage(blob);
+    previewRef.current.src = URL.createObjectURL(blob);
   };
 
   const handleSave = async () => {
     const formData = new FormData();
-    if (photo !== null && photo !== undefined) {
-      formData.append('photo', photo);
+    if (resultImage !== null && resultImage !== undefined) {
+      formData.append('photo', resultImage);
     }
     formData.append('biography', editorInstance.getHTML().toString());
 
@@ -56,13 +71,19 @@ export function Personal() {
 
   return (
     <form className="card">
+      <ImageCropper
+        modal={modal}
+        setModal={setModal}
+        image={selectedImage}
+        handleOnResultImage={handleOnResultImage}
+      />
       <label className="form-label">
         Fotografía
         <input
           ref={fileInputRef}
           type="file"
           accept="image/*"
-          onChange={handleFotoChange}
+          onChange={handleSelectImage}
           hidden
         />
       </label>
