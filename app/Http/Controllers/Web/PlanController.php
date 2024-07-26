@@ -23,8 +23,12 @@ class PlanController extends Controller
 
     public function show(Plan $plan)
     {
+        if ($plan->stripe_price && $plan->cashPayments->count() > 0) {
+            return view('pages.plans.payment-methods')->with('plan', $plan);
+        }
+
         if ($plan->stripe_price) {
-            return view('pages.plans.detail')->with('plan', $plan);
+            return redirect()->route('plans.checkout', ['plan' => $plan->id]);
         }
 
         return redirect()->route('plans.successful');

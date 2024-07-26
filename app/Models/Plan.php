@@ -14,4 +14,9 @@ class Plan extends Model
     {
         return $this->hasMany(PlanFeature::class)->orderBy('order')->orderBy('id');
     }
+
+    public function cashPayments(): HasMany
+    {
+        return $this->hasMany(CashPayment::class);
+    }
 }

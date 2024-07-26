@@ -6,7 +6,7 @@ export function OxxoButton({ payment, loading, handlePayWithOxxo }) {
       onClick={() => handlePayWithOxxo(payment.id)}
       disabled={loading}
       type="button"
-      className="bg-red-600/20 border border-red-800 rounded-md p-5 disabled:opacity-50 disabled:cursor-not-allowed"
+      className="bg-red-600/20 border border-red-800 rounded-md p-5 md:px-2 disabled:opacity-50 disabled:cursor-not-allowed"
     >
       <img
         src="/images/oxxo.png"

@@ -4,55 +4,25 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\CashPayment;
+use App\Services\CashPaymentService;
 
 class CashPaymentController extends Controller
 {
     public function index()
     {
-        $query = CashPayment::orderBy('type');
+        $query = CashPayment::orderBy('id')->orderBy('type');
 
-        $query->when(request()->has('verified'), function ($q) {
+        $query->when(request()->has('plan_id'), function ($q) {
             return $q->where('plan_id', request('plan_id'));
         });
 
         return $query->get();
     }
 
-    public function intent(CashPayment $cashPayment)
+    public function create(CashPayment $cashPayment, CashPaymentService $cashPaymentService)
     {
-        $user = request()->user();
+        $payment = $cashPaymentService->createPaymentIntent($cashPayment);
 
-        $payment = $user->payWith(
-            $cashPayment->price * 100,
-            [$cashPayment->type],
-            ['metadata' => ['cash_payment_id' => $cashPayment->id]]
-        );
-
-        return response()->json([
-            'name' => $user->name,
-            'email' => env('APP_DEBUG', true) ? 'succeed_immediately@email.com' : '$user->email',
-            'secret' => $payment->client_secret,
-        ]);
+        return $payment;
     }
-
-    /* public function bankTransfer(CashPayment $cashPayment)
-    {
-        $user = request()->user();
-
-        $payment =  Cashier::stripe()->paymentIntents->create([
-            'amount' => $cashPayment->price * 100,
-            'customer' => $user()->stripe_id,
-            'currency' => 'mxn',
-            'automatic_payment_methods' => ['enabled' => true],
-            'return_url' => 'https://example.com/return_url',
-            'payment_method_data' => ['type' => 'customer_balance'],
-            'confirm' => true,
-        ]);
-
-        return response()->json([
-            'name' => $user->name,
-            'email' => $user->email,
-            'secret' => $payment->client_secret,
-        ]);
-    } */
 }

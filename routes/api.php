@@ -42,7 +42,7 @@ Route::group(['middleware' => 'auth:web'], function () {
 
     Route::prefix('cash-payments')->group(function() {
         Route::get('/', [CashPaymentController::class, 'index']);
-        Route::get('{cashPayment}/intent', [CashPaymentController::class, 'intent']);
+        Route::get('{cashPayment}/intent', [CashPaymentController::class, 'create']);
     });
 
     Route::prefix('appointments')->group(function() {

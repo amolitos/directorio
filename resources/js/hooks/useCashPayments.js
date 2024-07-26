@@ -48,5 +48,25 @@ export const useCashPayments = (planId) => {
     }
   };
 
-  return { loading, error, cashPayments, fetchCashPayments, handlePayWithOxxo };
+  const handlePayWithBankTransfer = async (cashPaymentId) => {
+    setLoading(true);
+
+    try {
+      const { data } = await api.get(`/cash-payments/${cashPaymentId}/intent`);
+      window.open(data.url, '_blank').focus();
+    } catch ({ message }) {
+      setError(message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return {
+    loading,
+    error,
+    cashPayments,
+    fetchCashPayments,
+    handlePayWithOxxo,
+    handlePayWithBankTransfer,
+  };
 };

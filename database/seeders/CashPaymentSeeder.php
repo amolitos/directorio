@@ -13,7 +13,7 @@ class CashPaymentSeeder extends Seeder
     public function run(): void
     {
         CashPayment::create([
-            'title' => 'Oxxo Pago Semestral',
+            'title' => 'Pago Oxxo por 6 meses',
             'plan_id' => 2,
             'price' => 599,
             'type' => 'oxxo',
@@ -22,10 +22,29 @@ class CashPaymentSeeder extends Seeder
         ]);
 
         CashPayment::create([
-            'title' => 'Oxxo Pago Anual',
+            'title' => 'Pago Oxxo por 1 año',
             'plan_id' => 2,
             'price' => 999,
             'type' => 'oxxo',
+            'months' => 12,
+            'grace_days' => 15,
+        ]);
+
+        CashPayment::create([
+            'title' => 'Transferencia por 6 meses',
+            'plan_id' => 2,
+            'price' => 599,
+            'type' => 'bank_transfer',
+            'months' => 6,
+            'grace_days' => 15,
+        ]);
+
+        CashPayment::create([
+            'title' => 'Transferencia por 1 año',
+            'plan_id' => 2,
+            'price' => 999,
+            'type' => 'bank_transfer',
+            'months' => 12,
             'grace_days' => 15,
         ]);
     }

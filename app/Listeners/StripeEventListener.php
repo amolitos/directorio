@@ -28,13 +28,18 @@ class StripeEventListener
         if ($event->payload['type'] === 'charge.succeeded')
         {
             $object = $event->payload['data']['object'];
+            $type = $object['payment_method_details']['type'];
 
-            if ($object['payment_method_details']['type'] === 'oxxo')
+            $stripeId = $object['id'];
+            $customer = $object['customer'];
+            $cashPaymentId = $object['metadata']['cash_payment_id'];
+
+            if ($type === 'oxxo' || $type === 'customer_balance')
             {
                 $data = [
-                    'customer' => $object['customer'],
-                    'cash_payment_id' => $object['metadata']['cash_payment_id'],
-                    'stripe_id' => $object['id']
+                    'customer' => $customer,
+                    'cash_payment_id' => $cashPaymentId,
+                    'stripe_id' => $stripeId
                 ];
 
                 $job = new PlanPaymentJob($data);
