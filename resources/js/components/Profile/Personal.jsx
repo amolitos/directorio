@@ -32,7 +32,9 @@ export function Personal() {
     ],
     content: profile.biography ?? '',
     editorProps: {
-      attributes: { class: 'form-input h-96 max-h-96 overflow-y-auto' },
+      attributes: {
+        class: 'form-input min-h-48 max-h-96 overflow-y-auto',
+      },
     },
   });
 
@@ -96,11 +98,13 @@ export function Personal() {
           className="w-36 h-36 bg-stone-200 object-contain object-center"
         />
         <div>
-          <ul className="list-disc list-inside text-sm text-gray-400 mb-3">
-            <li>La imagen es fundamental para darle seriedad a tu profile.</li>
+          <ul className="list-disc text-sm text-gray-400 ml-3 mb-3">
+            <li>
+              Una buena imagen es fundamental para dar profesionalidad a tu
+              perfil.
+            </li>
             <li>El tamaño de archivo máximo es de 1MB.</li>
             <li>Solo formatos .jpg, .jpeg o .png</li>
-            <li>Dimensiones de 800 (ancho) x 800 píxeles (alto).</li>
           </ul>
           <button
             onClick={() => fileInputRef.current.click()}
