@@ -22,6 +22,7 @@ export function Personal() {
     extensions: [
       StarterKit,
       HardBreak.extend({
+        name: 'customHardBreak',
         addKeyboardShortcuts() {
           return {
             Enter: ({ editor }) => editor.commands.setHardBreak(),
