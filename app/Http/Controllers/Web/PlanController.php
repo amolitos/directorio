@@ -36,12 +36,19 @@ class PlanController extends Controller
 
     public function checkout(Request $request, Plan $plan)
     {
+        $preUrl = url()->previous();
+        $planUrl = route('plans.show', ['plan' => $plan->id]);
+
+        if ($preUrl != $planUrl) {
+            $preUrl = route('plans.index');
+        }
+
         if ($plan->stripe_price) {
             return $request->user()
                 ->newSubscription('default', $plan->stripe_price)
                 ->checkout([
                     'success_url' => route('plans.successful'),
-                    'cancel_url' => route('plans.show', ['plan' => $plan->id]),
+                    'cancel_url' => $preUrl,
                 ]);
         }
 
