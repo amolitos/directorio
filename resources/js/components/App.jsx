@@ -42,7 +42,7 @@ if (document.querySelector('[react-profile]')) {
   createRoot(element).render(
     <Provider store={store}>
       <ProfileIndex {...props} />
-      <ToastContainer />
+      <ToastContainer position="bottom-center" theme="dark" />
     </Provider>
   );
 }
