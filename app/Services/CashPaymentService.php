@@ -15,6 +15,11 @@ class CashPaymentService
     public function createPaymentIntent(CashPayment $cashPayment): array
     {
         $user = request()->user();
+
+        if (! $user->stripe_id) {
+            $user->createAsStripeCustomer();
+        }
+
         $price = $cashPayment->price * 100;
         $metadata = ['metadata' => ['cash_payment_id' => $cashPayment->id]];
         $data = [];
