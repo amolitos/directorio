@@ -19,9 +19,9 @@ class SubscriptionResource extends JsonResource
             'user' => $this->user,
             'phone' => $this->phone,
             'email' => $this->email,
-            'professional_id' => $this->profile->professional_id,
+            'professional_id' => $this->profile->professional_id ?? '',
             'plan' => $this->plan,
-            'verified' => $this->profile->verified_at ? true : false,
+            'verified' => $this->profile?->verified_at ? true : false,
             'subscribed_at' => $this->created_at->translatedFormat('j F Y \a \l\a\s H:i'),
         ];
     }
