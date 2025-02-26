@@ -48,9 +48,7 @@ Route::group(['middleware' => 'auth:web'], function () {
     Route::prefix('school')->name('school.')->group(function() {
         Route::get('/', [SchoolController::class, 'index'])->name('index');
         Route::get('videos/{id}', [SchoolController::class, 'video'])->name('video');
-        Route::get('live', [SchoolController::class, 'live'])
-            ->name('live')
-            ->middleware([EnsureUserIsSubscribed::class]);
+        Route::get('live', [SchoolController::class, 'live'])->name('live');
     });
 
     Route::view('calendar', 'pages.lawyer.calendar')

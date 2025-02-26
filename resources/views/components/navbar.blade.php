@@ -45,12 +45,6 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('calendar') }}" class="dropdown-item">
-                                    <i class="fa-regular fa-calendar mr-1"></i>
-                                    Agenda
-                                </a>
-                            </li>
-                            <li>
                                 <a href="{{ route('logout') }}" class="dropdown-item">
                                     <i class="fa-solid fa-right-from-bracket mr-1"></i>
                                     Salir

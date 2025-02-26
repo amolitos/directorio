@@ -20,12 +20,6 @@ export function LawyerItem({ lawyer }) {
           <h3 className="font-semibold md:text-xl truncate">
             {capitalizeWords(lawyer.name)}
           </h3>
-          {lawyer.verified_at && (
-            <div className="w-fit bg-teal-600 text-sm text-white rounded-full md:rounded py-1 px-2 ml-auto">
-              <i className="fa-solid fa-check md:mr-2" />
-              <span className="hidden md:inline-block">VERIFICADO</span>
-            </div>
-          )}
         </div>
         <div className="badge badge-primary mt-2">{lawyer.degree}</div>
         <p className="text-sm md:text-base text-stone-600 dark:text-gray-400 mt-2">
