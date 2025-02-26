@@ -17,6 +17,14 @@ class EnsureUserIsSubscribed
     {
         $user = $request->user();
 
+        if ($user->hasRole(['admin', 'manager'])) {
+            return $next($request);
+        }
+
+        if ($user->subscribed('default')) {
+            return $next($request);
+        }
+
         if ($user->hasRole(['admin', 'manager']) || $user->subscribed('default')) {
             return $next($request);
         }
