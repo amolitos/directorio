@@ -59,7 +59,7 @@ export function Index() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-6">
-      <div className="lg:h-[calc(100vh-89px)] lg:col-span-2 overflow-y-scroll">
+      <div className="lg:h-[calc(100vh-80px)] lg:col-span-2 overflow-y-scroll">
         <Filters
           loading={loading}
           defaultState={stateId}
@@ -68,7 +68,7 @@ export function Index() {
       </div>
       <div
         ref={scrollRef}
-        className="h-[calc(100vh-65px)] lg:h-[calc(100vh-89px)] lg:col-span-4 container p-5 lg:p-8 overflow-y-scroll"
+        className="h-[calc(100vh-65px)] lg:h-[calc(100vh-80px)] lg:col-span-4 container p-5 lg:p-8 overflow-y-scroll"
       >
         {renderContent()}
       </div>

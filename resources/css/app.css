@@ -109,7 +109,7 @@
     }
 
     .navbar {
-        @apply bg-white dark:bg-zinc-800 flex flex-col md:flex-row md:items-center border-b border-zinc-700 mx-auto py-1 px-4;
+        @apply bg-white dark:bg-zinc-800 flex flex-col md:flex-row md:items-center outline outline-1 outline-zinc-700 mx-auto px-4;
     }
 
     .navbar-menu {

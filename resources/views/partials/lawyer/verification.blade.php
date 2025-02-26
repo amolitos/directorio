@@ -4,7 +4,7 @@
         Perfil verificado
     </div>
 @else
-    <div class="sticky top-[73px] md:top-[89px] bg-red-500 font-medium text-white text-center uppercase py-2 px-4">
+    <div class="sticky top-[64px] md:top-[80px] bg-red-500 font-medium text-white text-center uppercase py-2 px-4">
         Perfil no verificado
     </div>
 @endif
